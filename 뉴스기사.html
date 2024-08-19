@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            margin: 0;
+        }
+        .location-wrap {
+            height: 60px;
+            background-color: #006955;
+            box-sizing: border-box;
+        }  
+        .btn-home {
+            width: 60px;
+            height: 60px;
+            border: none;
+            border-right: 1px solid gray;
+            background-color: #006955;
+            cursor: pointer;
+        }
+        .common-layout {
+            width: 1180px;
+            /* margin: 0 auto; */
+        }
+        .location-wrap>.common-layout>div{
+            width: 100%;
+            display: flex;
+        }
+        .location-nav-wrap{
+            line-height: 60px;
+            margin-left: 20px;
+            font-size: large;
+            font-weight: bold;
+        }
+        .pagetitle-wrap {
+            text-align: center;
+            width: 1180px;
+            margin: 0 auto 60px;
+            padding-top: 100px;
+        }
+        .container{
+            box-sizing: border-box;
+            /* display: block; */
+
+        }
+        .title-style1{
+            font-size: 40px;
+            font-weight: bold;
+        }
+            .contents {
+            position: relative;
+            width: 1180px;
+            margin: 0 auto 100px;
+            min-height: 400px;
+        }
+        .search{
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 0;
+            letter-spacing: -4px;
+        }
+        .search .input_text{
+            width: 447px;
+            height: 60px;
+            vertical-align: top;
+            font-size: 16px;
+            border-radius: 10px 0 0px 0;
+            letter-spacing: -1px;
+            border: 2px solid #eee;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        .search button {
+            width: 120px;
+            min-width: 120px;
+            height: 60px;
+            vertical-align: top;
+            border-radius: 0 10px 0px 0;
+            background: url(../image/icon_components.png) no-repeat left -15px #0770bb;
+            padding-left: 63px;
+            text-align: left;
+            font-family: 'NotoKrR';
+            font-weight: normal;
+            letter-spacing: -1px;
+            margin-left: -1px;
+        }
+        .btn{
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            color: white;
+            box-sizing: border-box;
+        }
+        .table {
+            border-collapse: collapse !important;
+            width: 100%;
+        }
+        .table.table-type1 td {
+            line-height: 25px;
+            word-break: keep-all;
+            padding: 10px 20px;
+        }
+        .board-wrap .board-list-wrap .table td.title {
+            text-align: left !important;
+            padding: 0 20px;
+            width: 600px;
+        }
+        thead {
+            display: table-header-group;
+            vertical-align: middle;
+            unicode-bidi: isolate;
+            border-color: inherit;
+            background-color: rgb(189, 188, 188);
+            height: 50px;
+        }
+        .table td {
+            font-size: 16px;
+            font-family: 'NotoKrL';
+            text-align: center;
+            font-weight: normal;
+            color: #777777;
+            border-right: 1px solid #eee;   
+            border-left: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            border-top: 0;
+            background-color: #fff;
+            height: 60px;
+        }
+
+        .pagelist {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .lftnavi, .ritnavi {
+            display: flex;
+            align-items: center;
+
+        }
+        .pagelist ol {
+            display: flex;
+            align-items: center;
+        }
+        li {
+            list-style: none;
+            width: 40px;
+        }
+        .pagelist strong {
+            display: inline-block;
+            min-width: 20px;
+            height: 40px;
+            padding: 0px 15px;
+            background: #1474d0;
+            color: #fff;
+            font-size: 16px;
+            line-height: 40px;
+            box-sizing: border-box;
+        }
+        .pagelist a {
+            display: inline-block;
+            min-width: 20px;
+            height: 40px;
+            padding: 0px 15px;
+            text-align: center;
+            line-height: 40px;
+            color: #1474d0;
+            text-decoration: none;
+        }
+
+        .ritnavi a img{
+            margin-top: 15px;
+        }
+
+        #pageList{
+            padding-right: 200px;
+        }
+        .title a{
+            text-decoration: none;
+            color: #777777;
+            font-weight: bold;
+        }
+    </style>    
+</head>
+<body>
+    <section class="location-wrap">
+        <div class="common-layout">
+            <div>
+                <button type="button" class="btn-home" onclick="location.href= 'home' ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+                        <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4z"/>
+                      </svg></button>     
+            <div class="location-nav-wrap">
+                <span>병원소개 > 이젠뉴스</span>
+                <!-- <ul class="location">
+                    <li>
+                        <a href="">병원소개</a>
+                    </li>
+                    <li>
+                        <a href="">예약문의</a>
+                    </li>
+                    <li>
+                        <a href="">의료진소개</a>
+                    </li>
+                    <li>
+                        <a href="">고객서비스</a>
+                    </li>
+                </ul> -->
+            </div>
+            <!-- <div class="location-nav-wrap">
+                <span>의료원장인사말</span>
+                <ul class="location">
+                    <li>
+                        <a href="의료원장인사말.html">의료원장인사말</a>
+                    </li>
+                    <li>
+                        <a href="연혁.html">연혁</a>
+                    </li>
+                    <li>
+                        <a href="뉴스기사.html">뉴스기사</a>
+                    </li>
+                    <li>
+                        <a href="오시는길.html">오시는길</a>
+                    </li>
+                </ul>
+                </div> -->
+            </div>
+        </div>
+    </section>
+    <section class="container" id="container">
+        <div class="pagetitle-wrap">
+            <h1 class="title-style1">이젠뉴스</h1>
+        </div>
+
+        <div class="contents">
+            <form id="newsForm" name="newsForm" method="post">
+            <div class="inner">
+                <div class="board-wrap">
+                    <div class="search">
+                        <input type="text" name="searchword" id="searchword" class="input_text" placeholder="검색어를 입력해주세요." title="검색어 직접 입력">
+                        <button type="submit" class="btn">검색</button>
+                    </div>
+                    <div class="board">
+                        <table class="table table-type1">
+                            <colgroup>
+                            <col style="width: 8%;">
+                            <col style>
+                            <col style="width: 10%;">
+                            <col style="width: 8.5%;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">번호</th>
+                                    <th scope="col">제목</th>
+                                    <th scope="col">등록일</th>                     
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        1</td>
+                                    <td class="title">
+                                        <a href="http://www.ikunkang.com/news/articleView.html?idxno=40216" role="button" target="_blank">
+                                            발 편한 세상 만드는 명의 - 정형외과 김범수 교수 / 건강다이제스트</a>
+                                    </td>
+                                    <td>2024.07.01</td>
+                                </tr>
+                                  <tr>
+                                    <td>
+                                        2</td>
+                                    <td class="title">
+                                        <a href="https://www.michuhol.go.kr/nice/column/view.do?sq=5359&amp;search=" role="button" target="_blank">
+                                            혹시 나도 알코올 중독일까? / 나이스미추</a>
+                                    </td>
+                                    <td>2024.07.01</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        3</td>
+                                    <td class="title">
+                                        <a href="https://www.incheonnews.com/news/articleView.html?idxno=419206" role="button" target="_blank">
+                                            연명의료결정제도 캠페인 실시 / 인천뉴스</a>
+                                    </td>
+                                    <td>2024.06.24</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        4</td>
+                                    <td class="title">
+                                        <a href="http://www.bosa.co.kr/news/articleView.html?idxno=2224552" role="button" target="_blank">
+                                            이택 병원장, 로봇수술 국제행사서 기조연설 / 의학신문</a>
+                                    </td>
+                                    <td>2024.06.19</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        5</td>
+                                    <td class="title">
+                                        <a href="https://www.newsis.com/view/?id=NISX20240607_0002764225&amp;cID=14001&amp;pID=14000" role="button" target="_blank">
+                                            오는 14일 '첨단재생의료 심포지엄' 개최 / 뉴시스</a>
+                                    </td>
+                                    <td>2024.06.15</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                    
+                        <div class="pagelist fix" id="pageList">
+                            <ul class="iftnavi">
+                                <li>
+                                <a id="prevPage" href="#">
+                                    <img src="../image/ico_btn_pprev.png" alt="">
+                                </a>
+                             </li>
+                            </ul>
+                                <ol class="fix">
+                                    <li><strong>1</strong></li>
+                                    <li><strong>2</strong></li>
+                                    <li><strong>3</strong></li>
+                                    <li><strong>4</strong></li>
+                                    <li><strong>5</strong></li>
+                    
+                                </ol>
+
+                            <ul class="ritnavi">
+                                <li>
+                                    <a id="nextPage" href="#">
+                                        <img src="../image/ico_btn_nxt.png" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id="lastPage" href="#">
+                                        <img src="../image/ico_btn_nnxt.png" alt="">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+        </form>
+    </div>
+
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const totalPages = 5; // 총 페이지 수
+            let currentPage = 1; // 현재 페이지 (예: 1 페이지)
+
+            function updatePageList() {
+                const ol = document.querySelector('.pagelist ol');
+                ol.innerHTML = '';
+
+                for (let i = 1; i <= totalPages; i++) {
+                    const listItem = document.createElement('li');
+                    if (i === currentPage) {
+                        listItem.innerHTML = `<strong>${i}</strong>`;
+                    } else {
+                        listItem.innerHTML = `<a href="#" data-page="${i}">${i}</a>`;
+                    }
+                    ol.appendChild(listItem);
+                }
+
+                document.getElementById('prevPage').style.display = (currentPage === 1) ? 'none' : 'inline';
+                document.getElementById('nextPage').style.display = (currentPage === totalPages) ? 'none' : 'inline';
+                document.getElementById('lastPage').style.display = (currentPage === totalPages) ? 'none' : 'inline';
+            }
+
+            function handlePageChange(event) {
+                event.preventDefault();
+                const target = event.target;
+                if (target.tagName === 'A' && target.dataset.page) {
+                    currentPage = parseInt(target.dataset.page, 10);
+                    updatePageList();
+                } else if (target.id === 'prevPage' && currentPage > 1) {
+                    currentPage--;
+                    updatePageList();
+                } else if (target.id === 'nextPage' && currentPage < totalPages) {
+                    currentPage++;
+                    updatePageList();
+                } else if (target.id === 'lastPage') {
+                    currentPage = totalPages;
+                    updatePageList();
+                }
+            }
+
+            document.getElementById('prevPage').addEventListener('click', handlePageChange);
+            document.getElementById('nextPage').addEventListener('click', handlePageChange);
+            document.getElementById('lastPage').addEventListener('click', handlePageChange);
+
+            updatePageList();
+        });
+    </script>
+
+
+    
+    
+</body>
+</html>

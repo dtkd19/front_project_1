@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+
+    <style>
+
+        body{
+            margin: 0;
+        }
+        .location-wrap {
+            height: 60px;
+            background-color: #006955;
+            box-sizing: border-box;
+        }  
+        .btn-home {
+            width: 60px;
+            height: 60px;
+            border: none;
+            border-right: 1px solid gray;
+            background-color: #006955;
+            cursor: pointer;
+        }
+        .common-layout {
+            width: 1180px;
+            /* margin: 0 auto; */
+        }
+        .location-wrap>.common-layout>div{
+            width: 100%;
+            display: flex;
+        }
+        .location-nav-wrap{
+            line-height: 60px;
+            margin-left: 20px;
+            font-size: large;
+            font-weight: bold;
+        }
+        .pagetitle-wrap {
+            text-align: center;
+            width: 1180px;
+            margin: 0 auto 60px;
+            padding-top: 100px;
+        }
+        .container{
+            box-sizing: border-box;
+            /* display: block; */
+
+        }
+        .title-style1{
+            font-size: 40px;
+            font-weight: bold;
+        }
+        .contents {
+            position: relative;
+            width: 1180px;
+            margin: 0 auto 100px;
+            min-height: 400px;
+        }
+
+    </style>
+</head>
+<body>
+    <section class="location-wrap">
+        <div class="common-layout">
+            <div>
+                <button type="button" class="btn-home" onclick="location.href= 'home' ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+                        <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4z"/>
+                      </svg></button>     
+            <div class="location-nav-wrap">
+                <span>병원소개 > 오시는 길</span>
+                <!-- <ul class="location">
+                    <li>
+                        <a href="">병원소개</a>
+                    </li>
+                    <li>
+                        <a href="">예약문의</a>
+                    </li>
+                    <li>
+                        <a href="">의료진소개</a>
+                    </li>
+                    <li>
+                        <a href="">고객서비스</a>
+                    </li>
+                </ul> -->
+            </div>
+            <!-- <div class="location-nav-wrap">
+                <span>의료원장인사말</span>
+                <ul class="location">
+                    <li>
+                        <a href="의료원장인사말.html">의료원장인사말</a>
+                    </li>
+                    <li>
+                        <a href="연혁.html">연혁</a>
+                    </li>
+                    <li>
+                        <a href="뉴스기사.html">뉴스기사</a>
+                    </li>
+                    <li>
+                        <a href="오시는길.html">오시는길</a>
+                    </li>
+                </ul>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="container">
+        <div class="pagetitle-wrap">
+            <h1 class="title-style1">오시는 길</h1>
+        </div>
+
+        <div class="contents">
+           
+            <script>
+                async function searchHospitals() {
+                    const apiKey = 'fcf1f6e85818f27f79f4b617eb304a80'; // 여기에 발급받은 REST API 키를 입력하세요.
+                    const latitude = '37.566536'; // 서울역 위도
+                    const longitude = '126.977968'; // 서울역 경도
+                    const radius = '2000'; // 검색 반경 (미터 단위)
+        
+                    const url = `https://dapi.kakao.com/v2/local/search/category.json?category_group_code=HP&x=${longitude}&y=${latitude}&radius=${radius}&page=1&size=10`;
+        
+                    try {
+                        const response = await fetch(url, {
+                            headers: {
+                                'Authorization': `KakaoAK ${apiKey}`
+                            }
+                        });
+        
+                        if (!response.ok) {
+                            throw new Error('네트워크 응답이 실패했습니다.');
+                        }
+        
+                        const data = await response.json();
+                        displayHospitals(data.documents);
+                    } catch (error) {
+                        console.error('API 호출 오류:', error);
+                        document.getElementById('results').innerText = '병원 정보를 가져오는 데 실패했습니다.';
+                    }
+                }
+        
+                function displayHospitals(hospitals) {
+                    const resultsDiv = document.getElementById('results');
+                    resultsDiv.innerHTML = ''; // 기존 결과 지우기
+        
+                    if (hospitals.length === 0) {
+                        resultsDiv.innerText = '병원 정보를 찾을 수 없습니다.';
+                        return;
+                    }
+        
+                    const list = document.createElement('ul');
+                    hospitals.forEach(hospital => {
+                        const listItem = document.createElement('li');
+                        listItem.innerHTML = `
+                            <strong>${hospital.place_name}</strong><br>
+                            주소: ${hospital.address_name}<br>
+                            전화번호: ${hospital.phone}<br>
+                            <a href="https://map.kakao.com/?q=${encodeURIComponent(hospital.place_name)}" target="_blank">지도에서 보기</a>
+                        `;
+                        list.appendChild(listItem);
+                    });
+        
+                    resultsDiv.appendChild(list);
+                }
+            </script>
+        </div>
+</body>
+</html>
