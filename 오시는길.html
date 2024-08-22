@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     
-
     <style>
+        @import "reset.css";
 
         body{
             margin: 0;
@@ -61,6 +60,135 @@
             min-height: 400px;
         }
 
+        .tab_sty01{
+            width: 100%;
+            /* border-top: 1px solid gray;
+            border-bottom: 1px solid gray; */
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+        .tab_sty01>ul{
+            width: 1000px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        }
+        .tab_sty01>ul>li>a{
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .map{
+            margin-bottom: 50px;
+            width: 100%;
+            height: 350px;
+        }
+        .map-list {
+            display: none;
+        }
+        .map-list.active {
+            display: block;
+        }
+        .map a{
+            text-decoration: none;
+            color: blue
+        }
+
+        .map-area {
+            overflow: hidden;
+            margin-top: 30px;
+        }
+        .tab_sty01 li {
+        /* border-bottom: 1px solid #006955; */
+            border-bottom: 3px solid #006955;
+            list-style: none;
+            padding: 20px;
+        }
+        .tab_sty01 ul .on{
+            border: 3px solid #006955;
+            border-bottom: none;
+            border-radius: 7px;
+            border-bottom-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+        }
+        .way-wrap{
+            display: flex;
+        }
+        .way-wrap .way-left{
+            width: 200px;
+        }
+        .table.table-type1 thead tr:first-child th {
+         border-top: 2px solid #bbb;
+        }
+        .table.table-type1 td {
+            line-height: 60px;
+            padding: 10px 20px;
+        }
+
+        .table.table-type1 tbody th:first-child {
+        border-right: 1px solid #ddd;
+        }
+        .table th.line {
+         border-right: 1px solid #ddd;
+        }
+        .table.table-type1 tbody th {
+            border-bottom: 1px solid #eee;
+        }
+        .way-wrap .way-right{
+            width: 980px;
+        }
+        .way-cont{
+            /* line-height: 25px; */
+            font-size: 16px;
+        }
+        .table td {
+            font-size: 16px;
+            text-align: center;
+            color: #777777;
+            padding: 0 20px;
+            border-right: 0;
+            border-left: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            border-top: 0;
+            background-color: #fff;
+            height: 60px;
+            vertical-align: middle;
+        }
+        .table th {
+            font-size: 16px;
+            color: #000000;
+            padding: 0;
+            text-align: center;
+            background-color: #f6f6f6;
+            height: 70px;
+            border-right: 0;
+            border-left: 1px solid #eee;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            vertical-align: middle;
+        }
+        .table-type1 {
+            box-sizing: border-box;
+            border-collapse: collapse;
+            width: 100%; 
+        }
+
+       .way-wrap{
+        padding-top: 50px;
+        padding-bottom: 100px;
+        border-bottom: 1px solid gray;
+       }
+
+       .way-wrap:last-of-type{
+        border-bottom: none;
+       }
+       .way-title{
+        font-size: 24px;
+        font-weight: 700;
+       }
+
     </style>
 </head>
 <body>
@@ -109,65 +237,691 @@
         </div>
     </section>
 
+
     <section class="container" id="container">
         <div class="pagetitle-wrap">
             <h1 class="title-style1">오시는 길</h1>
         </div>
-
+        
         <div class="contents">
            
-            <script>
-                async function searchHospitals() {
-                    const apiKey = 'fcf1f6e85818f27f79f4b617eb304a80'; // 여기에 발급받은 REST API 키를 입력하세요.
-                    const latitude = '37.566536'; // 서울역 위도
-                    const longitude = '126.977968'; // 서울역 경도
-                    const radius = '2000'; // 검색 반경 (미터 단위)
-        
-                    const url = `https://dapi.kakao.com/v2/local/search/category.json?category_group_code=HP&x=${longitude}&y=${latitude}&radius=${radius}&page=1&size=10`;
-        
-                    try {
-                        const response = await fetch(url, {
-                            headers: {
-                                'Authorization': `KakaoAK ${apiKey}`
-                            }
-                        });
-        
-                        if (!response.ok) {
-                            throw new Error('네트워크 응답이 실패했습니다.');
-                        }
-        
-                        const data = await response.json();
-                        displayHospitals(data.documents);
-                    } catch (error) {
-                        console.error('API 호출 오류:', error);
-                        document.getElementById('results').innerText = '병원 정보를 가져오는 데 실패했습니다.';
-                    }
-                }
-        
-                function displayHospitals(hospitals) {
-                    const resultsDiv = document.getElementById('results');
-                    resultsDiv.innerHTML = ''; // 기존 결과 지우기
-        
-                    if (hospitals.length === 0) {
-                        resultsDiv.innerText = '병원 정보를 찾을 수 없습니다.';
-                        return;
-                    }
-        
-                    const list = document.createElement('ul');
-                    hospitals.forEach(hospital => {
-                        const listItem = document.createElement('li');
-                        listItem.innerHTML = `
-                            <strong>${hospital.place_name}</strong><br>
-                            주소: ${hospital.address_name}<br>
-                            전화번호: ${hospital.phone}<br>
-                            <a href="https://map.kakao.com/?q=${encodeURIComponent(hospital.place_name)}" target="_blank">지도에서 보기</a>
-                        `;
-                        list.appendChild(listItem);
-                    });
-        
-                    resultsDiv.appendChild(list);
-                }
-            </script>
+            <div class="tab_sty01">
+                <ul class="fix">
+                    <li class="on">
+                        <a href="#tab1" class="tabBtn" >인천이젠병원</a>
+                    </li>
+                    <li>
+                        <a href="#tab2" class="tabBtn" onclick="re()">서울이젠병원</a>
+                    </li>
+                    <li>
+                        <a href="#tab3" class="tabBtn" >수원이젠병원</a>
+                    </li>
+                    <li>
+                        <a href="#tab4" class="tabBtn" >부산이젠병원</a>
+                    </li>
+                    <li>
+                        <a href="#tab5" class="tabBtn">대구이젠병원</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="map-area"> 
+                    <div class="map-list active" id="tab1">
+                        
+                        <div class="map" id="map1">
+                        </div>
+                        <div class="way-wrap">
+                            <div class="way-left">
+                                <h1 class="way-title">
+                                    버스로 오시는<br>
+                                    방법
+                                </h1>
+                            </div>
+                            <div class="way-right">
+                                <div class="way-cont">
+                                    <table class="table table-type1">
+                                        <colgroup>
+                                            <col style="width:170px"/>
+                                            <col style="width:96px"/>
+                                            <col style=""/>
+                                            <col style="width:163px"/>
+                                        </colgroup>
+                                        <thead>
+                                        <tr>
+                                            <th class="line">구분</th>
+                                            <th>노선번호</th>
+                                            <th>주요 정류장</th>
+                                            <th>비고</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <th rowspan="3">시내버스</th>
+                                            <td>5</td>
+                                            <td>운연역 - 남인천세무서 – 신세계백화점(인천터미널) – 인하대역 – 옹진군청 – 이젠병원</td>
+                                            <td rowspan="2">병원 앞 하차</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>무지개아파트(동남아파트) – 동막역 – 인천가톨릭대 – 더샵하버뷰 – 인하대역 – 이젠병원</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>항동7가버스차고지 – 국제여객터미널 – 수협(인천해양센터) – 항운아파트 – 출입국관리사무소</td>
+                                            <td>출입국 관리사무소 하차</td>
+                                        </tr>
+                                        <tr>
+                                            <th rowspan="3">마을버스</th>
+                                            <td>517</td>
+                                            <td>동인천 - 신포시장 - 출입국 관리 사무소 - 이젠병원</td>
+                                            <td>　</td>
+                                        </tr>
+                                        <tr>
+                                            <td>519</td>
+                                            <td>동인천 - 신포시장 - 송도중학교 - 신흥시장 - 엑슬루타워</td>
+                                            <td>　</td>
+                                        </tr>
+                                        <tr>
+                                            <td>521</td>
+                                            <td>옥련중학교 – 옥련2동주민센터(옥련우체국) – 인천해양과학고 – 경인방송 – 숭의역</td>
+                                            <td>　</td>
+                                        </tr>
+                                        <tr>
+                                            <th rowspan="3">광역버스</th>
+                                            <td>9100</td>
+                                            <td>강남역서초현대타워앞 – 하늘휴게소 – 선바위역 – 하늘휴게소 – 남동구청역 – 제물포역 – 숭의역</td>
+                                            <td>　</td>
+                                        </tr>
+                                        <tr>
+                                            <td>R8850</td>
+                                            <td>수원공용버스터미널 – 수원역 – 목감사거리 – 인천시청후문 – 제물포역 – 숭의역</td>
+                                            <td>　</td>
+                                        </tr>
+                                        <tr>
+                                            <td>R8851</td>
+                                            <td>수원공용버스터미널 – 수원역 – 목감사거리– 인천시청후문 – 제물포역 – 숭의역</td>
+                                            <td>　</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="way-wrap">
+                            <div class="way-left">
+                                <h1 class="way-title">
+                                    지하철로 오시는<br>
+                                    방법
+                                </h1>
+                            </div>
+                            <div class="way-right">
+                                <div class="prg-cont">
+                                    <table class="table table-type1 map">
+                                        <colgroup>
+                                            <col style="width:170px"/>
+                                            <col style=""/>
+                                            <col style=""/>
+                                        </colgroup>
+                                        <thead>
+                                        <tr>
+                                            <th class="line">노선</th>
+                                            <th>내리는역</th>
+                                            <th>비고</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <th rowspan="2"><p class="subway01">1호선</p></th>
+                                            <td>제물포역 또는 동인천역</td>
+                                            <td>하차 후 버스 또는 택시 이용<br>
+                                                (택시 이용 시 요금 약 4,000원) </td>
+                                        </tr>
+                                        <tr>
+                                            <td>인천역</td>
+                                            <td>수인분당선 환승    (왕십리역 방향)</td>
+                                        </tr>
+                                        <tr>
+                                            <th><p class="subway02">수인분당선</p></th>
+                                            <td>숭의(인하대병원)역</td>
+                                            <td>2번출구로 나와서 도보 약 5분</td>
+                                        </tr>
+                                        <tr>
+                                            <th><p class="subway03">인천 1호선</p></th>
+                                            <td>원인재역</td>
+                                            <td>수인분당선 환승 (인천역 방향)</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="map-list" id="tab2">
+                        
+                        <div class="map" id="map2">
+                        </div>
+                        <div class="way-bus">
+                            <div class="way-wrap">
+                                <div class="way-left">
+                                    <h1 class="way-title">
+                                        버스로 오시는<br>
+                                        방법
+                                    </h1>
+                                </div>
+                                <div class="way-right">
+                                    <div class="way-cont">
+                                        <table class="table table-type1">
+                                            <colgroup>
+                                                <col style="width:170px"/>
+                                                <col style="width:96px"/>
+                                                <col style=""/>
+                                                <col style="width:163px"/>
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th class="line">구분</th>
+                                                <th>노선번호</th>
+                                                <th>주요 정류장</th>
+                                                <th>비고</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <th rowspan="2">셔틀버스</th>
+                                                <td>7호선</td>
+                                                <td> 고속터미널역 3번 출구 앞  → 원내 : 본관 정문(남문) 앞</td>
+                                                <td rowspan="2">평일 Am 08:00 ~ Pm 06:00 <br> 주말 Am 08:30 ~ Pm 12:30</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2호선</td>
+                                                <td>서초역 7번 출구 앞  → 원내 : 본관 정문(남문) 앞 </td>
+                                            </tr>
+                                            <tr>
+                                                <th rowspan="4">대중버스</th>
+                                                <td>740</td>
+                                                <td>신촌역 - 서강대학교 - 전쟁기념관 - 전쟁기념관 - 서울지방조달청.이젠병원</td>
+                                                <td>　</td>
+                                            </tr>
+                                            <tr>
+                                                <td>142</td>
+                                                <td>동묘앞역6번출구 - 송도병원앞 - 장충단로입구 - 신사역5번출구 - 고속터미널</td>
+                                                <td>　</td>
+                                            </tr>
+                                            <tr>
+                                                <td>351</td>
+                                                <td>현대아파트 – 신사중학교 – 잠원성당 – 뉴코아아울렛 – 고속터미널</td>
+                                                <td>　</td>
+                                            </tr>
+                                            <tr>
+                                                <td>401</td>
+                                                <td> 청담역.경기고교 – 강남구청.강남세무서 – 강남구청역 – 영동시장 – 고속터미널</td>
+                                                <td>　</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="way-wrap">
+                            <div class="way-left">
+                                <h1 class="way-title">
+                                    지하철로 오시는<br>
+                                    방법
+                                </h1>
+                            </div>
+                            <div class="way-right">
+                                <div class="prg-cont">
+                                    <table class="table table-type1 map">
+                                        <colgroup>
+                                            <col style="width:170px"/>
+                                            <col style=""/>
+                                            <col style=""/>
+                                        </colgroup>
+                                        <thead>
+                                        <tr>
+                                            <th class="line">노선</th>
+                                            <th>내리는역</th>
+                                            <th>비고</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <th><p class="subway01">2호선</p></th>
+                                            <td>서초역</td>
+                                            <td>7번출구 <br>서초역에서 내릴 경우 셔틀버스를 이용해주세요. <br>(서울성모병원까지 거리 약 1Km)</td>
+                                        </tr>
+                                        <tr>
+                                            <th><p class="subway02">3호선</p></th>
+                                            <td>고속터미널역</td>
+                                            <td>가톨릭의과대학방면 2, 7번 출구</td>
+                                        </tr>
+                                        <tr>
+                                            <th><p class="subway03">7호선</p></th>
+                                            <td>고속터미널역 </td>
+                                            <td>가톨릭의과대학방면 3, 4번 출구</td>
+                                        </tr>
+                                        <tr>
+                                            <th><p class="subway04">9호선</p></th>
+                                            <td>고속터미널역</td>
+                                            <td>가톨릭의과대학방면 2, 3, 4, 7번 출구</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="map-list" id="tab3">
+                        
+                        <div class="map" id="map3">
+                        </div>
+                        <div class="way-wrap">
+                            <div class="way-left">
+                                <h1 class="way-title">
+                                    버스로 오시는<br>
+                                    방법
+                                </h1>
+                            </div>
+                            <div class="way-right">
+                                <div class="way-cont">
+                                    <table class="table table-type1">
+                                        <colgroup>
+                                            <col style="width:170px"/>
+                                            <col style="width:96px"/>
+                                            <col style=""/>
+                                            <col style="width:163px"/>
+                                        </colgroup>
+                                        <thead>
+                                        <tr>
+                                            <th class="line">구분</th>
+                                            <th>노선번호</th>
+                                            <th>주요 정류장</th>
+                                            <th>비고</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <th rowspan="3">시내버스</th>
+                                            <td>80</td>
+                                            <td>수원버스터미널 - 수원시청역2번출구.벽산그랜드코아 – 매탄2동주민센터 – 구법원사거리 – 이젠병원</td>
+                                            <td rowspan="2">병원 앞 하차</td>
+                                        </tr>
+                                        <tr>
+                                            <td>62-1</td>
+                                            <td>영통구청.상지문고 – 매탄성일아파트 – 매탄2동주민센터 – 구법원사거리 – 이젠병원</td>
+                                        </tr>
+                                        <tr>
+                                            <td>99</td>
+                                            <td>동신아파트  – 한일타운.홈플러스 – 조원시장 – 이젠병원</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th rowspan="1">마을버스</th>
+                                            <td>7</td>
+                                            <td>호반마을광교21단지 - 광교호수공원 - 제1주차장-광교에일린의뜰 - 창현고후문 - 이젠병원</td>
+                                            <td>　</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="way-wrap">
+                            <div class="way-left">
+                                <h1 class="way-title">
+                                    지하철로 오시는<br>
+                                    방법
+                                </h1>
+                            </div>
+                            <div class="way-right">
+                                <div class="prg-cont">
+                                    <table class="table table-type1 map">
+                                        <colgroup>
+                                            <col style="width:170px"/>
+                                            <col style=""/>
+                                            <col style=""/>
+                                        </colgroup>
+                                        <thead>
+                                        <tr>
+                                            <th class="line">노선</th>
+                                            <th>내리는역</th>
+                                            <th>비고</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <th><p class="subway01">1호선 분당선</p></th>
+                                            <td>수원역</td>
+                                            <td>4번출구</td>
+                                        </tr>
+                                        <tr>
+                                            <th><p class="subway02">신분당선</p></th>
+                                            <td>광교중앙·아주대역</td>
+                                            <td>B1F 환승센터</td>
+                                        </tr>
+                                        <tr>
+                                            <th><p class="subway03">분당선</p></th>
+                                            <td>수원시청역, 영통역 </td>
+                                            <td>수원시청역(1, 2, 9번 출구), 영통역(4,7번출구)</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="map-list" id="tab4">
+                        
+                        <div class="map" id="map4">
+                        </div>
+                        <div class="way-wrap">
+                            <div class="way-left">
+                                <h1 class="way-title">
+                                    버스로 오시는<br>
+                                    방법
+                                </h1>
+                            </div>
+                            <div class="way-right">
+                                <div class="way-cont">
+                                    <table class="table table-type1">
+                                        <colgroup>
+                                            <col style="width:170px"/>
+                                            <col style="width:96px"/>
+                                            <col style=""/>
+                                            <col style="width:163px"/>
+                                        </colgroup>
+                                        <thead>
+                                        <tr>
+                                            <th class="line">구분</th>
+                                            <th>노선번호</th>
+                                            <th>주요 정류장</th>
+                                            <th>비고</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <th rowspan="4">시내버스</th>
+                                            <td>38</td>
+                                            <td>청강리~중앙공원관리사무소</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>39</td>
+                                            <td>기장교리~남구구민체육센터</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>100</td>
+                                            <td>청강리~장전역</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>1003</td>
+                                            <td>청강리~부산대학병원</td>
+                                            <td>급행, 심야</td>
+                                        </tr>
+                                        <tr>
+                                            <th rowspan="2">마을버스</th>
+                                            <td>7</td>
+                                            <td>해운대백병원↔장산역(승차-5번출구 / 하차-2번출구)</td>
+                                            <td>　</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>부흥고·해운대백병원 하차</td>
+                                            <td></td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="way-wrap">
+                            <div class="way-left">
+                                <h1 class="way-title">
+                                    지하철로 오시는<br>
+                                    방법
+                                </h1>
+                            </div>
+                            <div class="way-right">
+                                <div class="prg-cont">
+                                    <table class="table table-type1 map">
+                                        <colgroup>
+                                            <col style="width:170px"/>
+                                            <col style=""/>
+                                            <col style=""/>
+                                        </colgroup>
+                                        <thead>
+                                        <tr>
+                                            <th class="line">노선</th>
+                                            <th>내리는역</th>
+                                            <th>비고</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <th><p class="subway01">도시철도 2호선</p></th>
+                                            <td>장산역</td>
+                                            <td>2번출구 도보7분</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="map-list" id="tab5">
+                        
+                        <div class="map" id="map5">
+                        </div>
+                        <div class="way-wrap">
+                            <div class="way-left">
+                                <h1 class="way-title">
+                                    버스로 오시는<br>
+                                    방법
+                                </h1>
+                            </div>
+                            <div class="way-right">
+                                <div class="way-cont">
+                                    <table class="table table-type1">
+                                        <colgroup>
+                                            <col style="width:170px"/>
+                                            <col style="width:96px"/>
+                                            <col style=""/>
+                                            <col style="width:163px"/>
+                                        </colgroup>
+                                        <thead>
+                                        <tr>
+                                            <th class="line">구분</th>
+                                            <th>노선번호</th>
+                                            <th>주요 정류장</th>
+                                            <th>비고</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <th rowspan="2">셔틀버스</th>
+                                            <td>1호선</td>
+                                            <td>안지랑역 4번 출구, 서부정류장역 3번출구 건너</td>
+                                            <td rowspan="2"> 08:20 ~ 17:20 30분간격운행</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2호선</td>
+                                            <td>두류역 5번 출구, 신흥초교 육교 앞(두류역 14번 출구)</td>
+                                         </tr>
+                                        <tr>
+                                            <th rowspan="4">시내버스</th>
+                                            <td>623</td>
+                                            <td>금포초등학교 - 화원시장 - 이마트월배점 - 달서구청 - 서부정류장 - 이젠병원 </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>순환3</td>
+                                            <td>범물1동주민센터 - 동아백화점수정점 - SK리더스뷰 - 중동시장 - 영대병원역 - 이젠병원</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>서구1</td>
+                                            <td>상리동종점 - 서평초등학교 - 서구시장 -  평리중학교 - 이월드 - 이젠병원</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>503</td>
+                                            <td>서변동영남네오빌 - 엑스코 - 경북대학교정문 - 홈플러스대구점 - 반월당역 - 영대병원역 - 이젠병원</td>
+                                            <td></td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="way-wrap">
+                            <div class="way-left">
+                                <h1 class="way-title">
+                                    지하철로 오시는<br>
+                                    방법
+                                </h1>
+                            </div>
+                            <div class="way-right">
+                                <div class="prg-cont">
+                                    <table class="table table-type1 map">
+                                        <colgroup>
+                                            <col style="width:170px"/>
+                                            <col style=""/>
+                                            <col style=""/>
+                                        </colgroup>
+                                        <thead>
+                                        <tr>
+                                            <th class="line">노선</th>
+                                            <th>내리는역</th>
+                                            <th>비고</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th><p class="subway01">1호선</p></th>
+                                                <td>대명역</td>
+                                                <td>2번출구로 나와서 도보 5분</td>
+                                            </tr>
+                                            <tr>
+                                                <th><p class="subway02">2호선</p></th>
+                                                <td>두류역</td>
+                                                <td>두류역으로 나올 시 14번출구로 나와서 셔틀버스 탑승</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    
+            </div>
+      
+
         </div>
-</body>
+      
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fcf1f6e85818f27f79f4b617eb304a80"></script>
+
+
+    
+        <script>
+            const tabList = document.querySelectorAll('.tab_sty01 .fix li');
+            const contents = document.querySelectorAll('.map-list');
+
+            if (tabList.length > 0 && contents.length > 0) {
+                tabList[0].classList.add('on');
+                contents[0].classList.add('active');
+            }
+    
+            tabList.forEach(tab => {
+                tab.querySelector('.tabBtn').addEventListener('click', function(e) {
+                    e.preventDefault();
+    
+                    // 모든 탭과 컨텐츠 숨기기
+                    tabList.forEach(t => t.classList.remove('on'));
+                    contents.forEach(content => content.classList.remove('active'));
+
+
+    
+                    // 현재 클릭된 탭 활성화 및 컨텐츠 표시
+                    this.parentNode.classList.add('on');
+
+                    const activeCont = this.getAttribute('href');
+                    document.querySelector(activeCont).classList.add('active');
+                    
+                    
+                    
+                });
+            });
+            
+        </script>
+        
+
+        <script>
+            function initializeMap(containerId, lat, lng, title) {
+                var mapContainer = document.getElementById(containerId),
+                mapOption = {
+                    center: new kakao.maps.LatLng(lat, lng),
+                    level: 3
+                };
+                
+                var map = new kakao.maps.Map(mapContainer, mapOption);
+                
+                
+                var markerPosition = new kakao.maps.LatLng(lat, lng);
+                var marker = new kakao.maps.Marker({
+                    position: markerPosition
+                });
+                marker.setMap(map);
+                
+            
+                
+                var iwContent = `<div style="padding:5px;">${title}<br><a href="https://map.kakao.com/link/map/${title},${lat},${lng}" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/${title},${lat},${lng}" target="_blank">길찾기</a></div>`,
+                    iwPosition = new kakao.maps.LatLng(lat, lng);
+    
+                var infowindow = new kakao.maps.InfoWindow({
+                    position: iwPosition,
+                    content: iwContent
+                }); 
+                
+    
+                infowindow.open(map, marker);
+                
+                
+            }
+    
+            window.onload = function() {
+                initializeMap('map1', 37.459849319662496, 126.63498155504057, '인천이젠병원');
+                initializeMap('map2', 37.50132772672766, 127.00584400966045, '서울이젠병원');
+                initializeMap('map3', 37.28061008558938, 127.04866181080385, '수원이젠병원'); 
+                initializeMap('map4', 35.17338003969457, 129.18143465693686, '부산이젠병원'); 
+                initializeMap('map5', 35.84032533369457, 128.56765727563183, '대구이젠병원'); 
+            }
+
+        
+
+            function relayout() {    
+    
+                // 지도를 표시하는 div 크기를 변경한 이후 지도가 정상적으로 표출되지 않을 수도 있습니다
+                // 크기를 변경한 이후에는 반드시  map.relayout 함수를 호출해야 합니다 
+                // window의 resize 이벤트에 의한 크기변경은 map.relayout 함수가 자동으로 호출됩니다
+                map.relayout();
+            }
+
+    
+        </script>
+
+        
+
 </html>

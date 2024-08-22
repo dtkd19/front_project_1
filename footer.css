@@ -1,0 +1,7 @@
+.footerList{
+    display: flex;
+    justify-content: center;
+}
+.footerList li{
+    padding: 10px;
+}

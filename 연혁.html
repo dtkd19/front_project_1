@@ -6,10 +6,8 @@
     <title>Document</title>
 
     <style>
-
-        body{
-            margin: 0;
-        }
+        @import "reset.css";
+        
         .location-wrap {
             height: 60px;
             background-color: #006955;
@@ -43,11 +41,7 @@
             margin: 0 auto 60px;
             padding-top: 100px;
         }
-        .container{
-            box-sizing: border-box;
-            display: block;
 
-        }
         .title-style1{
             font-size: 40px;
             font-weight: bold;
@@ -58,16 +52,17 @@
 
         .tab_sty01{
             width: 100%;
-            border-top: 1px solid gray;
-            border-bottom: 1px solid gray;
+            /* border-top: 1px solid gray; */
+            /* border-bottom: 1px solid gray; */
             background-color: white;
             display: flex;
             justify-content: center;
+            text-align: center;
         }
         .tab_sty01>ul{
             width: 1000px;
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         }
         .tab_sty01>ul>li>a{
             text-decoration: none;
@@ -92,7 +87,6 @@
         transform: translateX(-50%);
         width: 0;
         height: calc(100% - 30px);
-        /* border-right: 1px dotted #1474d0; */
         content: "";
         }   
         .history_wrapper .history_list li .year {
@@ -104,7 +98,6 @@
         margin-left: -220px;
         text-align: center;
         color: #000;
-        font-family: "SCDream", sans-serif;
         font-size: 45px;
         font-weight: 600;
         letter-spacing: -0.25px;
@@ -126,7 +119,7 @@
         height: 9px;
         border-radius: 9px;
         content: "";
-        background: #1474d0;
+        background: #006955;
           }
           .history_wrapper .history_list li dl .month {
         display: block;
@@ -136,7 +129,7 @@
         padding-right: 25px;
         box-sizing: border-box;
         text-align: right;
-        color: #1474d0;
+        color: #006955;
         font-family: "SCDream", sans-serif;
         font-size: 28px;
         font-weight: 500;
@@ -184,6 +177,40 @@
         padding-right: 20px;
         text-align: right;
       }
+      .tab_sty01 li{
+        padding: 30px;
+      }
+      .tab_sty01 li a:hover{
+        color:#006955;
+      }
+
+      .history_list{
+        padding-right: 50px;
+        padding-left: 50px;
+        padding-top: 5px;
+      }
+      .history_area{
+        width: 1180px;
+        margin: 0 auto;
+        background-color: beige;
+      }
+
+      .tab_sty01 li {
+        /* border-bottom: 1px solid #006955; */
+        border-bottom: 3px solid #006955;
+        list-style: none;
+      }
+      .tab_sty01 ul .on{
+        border: 3px solid #006955;
+        border-bottom: none;
+        border-radius: 7px;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+      }
+      .history_area{
+        margin-top: 20px;
+      }
+      
     </style>
 </head>
 <body>

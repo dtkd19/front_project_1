@@ -6,9 +6,9 @@
     <title>Document</title>
 
     <style>
-        body{
-            margin: 0;
-        }
+
+        @import "reset.css";
+        
         .location-wrap {
             height: 60px;
             background-color: #006955;
@@ -83,7 +83,6 @@
             background: url(../image/icon_components.png) no-repeat left -15px #0770bb;
             padding-left: 63px;
             text-align: left;
-            font-family: 'NotoKrR';
             font-weight: normal;
             letter-spacing: -1px;
             margin-left: -1px;
@@ -100,7 +99,7 @@
             width: 100%;
         }
         .table.table-type1 td {
-            line-height: 25px;
+            line-height: 60px;
             word-break: keep-all;
             padding: 10px 20px;
         }
@@ -116,10 +115,10 @@
             border-color: inherit;
             background-color: rgb(189, 188, 188);
             height: 50px;
+            line-height: 50px;
         }
         .table td {
             font-size: 16px;
-            font-family: 'NotoKrL';
             text-align: center;
             font-weight: normal;
             color: #777777;
@@ -136,11 +135,7 @@
             justify-content: center;
             margin-top: 40px;
         }
-        ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
+
         .lftnavi, .ritnavi {
             display: flex;
             align-items: center;
@@ -150,7 +145,7 @@
             display: flex;
             align-items: center;
         }
-        li {
+        .pagelist li {
             list-style: none;
             width: 40px;
         }
