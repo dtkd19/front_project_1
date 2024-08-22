@@ -7,10 +7,9 @@
     
     <style>
         @import "reset.css";
-
-        body{
-            margin: 0;
-        }
+        @import "header.css";
+        @import "footer.css";
+     
         .location-wrap {
             height: 60px;
             background-color: #006955;
@@ -126,7 +125,7 @@
             line-height: 60px;
             padding: 10px 20px;
         }
-
+        
         .table.table-type1 tbody th:first-child {
         border-right: 1px solid #ddd;
         }
@@ -177,7 +176,6 @@
 
        .way-wrap{
         padding-top: 50px;
-        padding-bottom: 100px;
         border-bottom: 1px solid gray;
        }
 
@@ -188,10 +186,107 @@
         font-size: 24px;
         font-weight: 700;
        }
+       
+
 
     </style>
 </head>
 <body>
+    <header id="header" class="header">
+        <div class="innerWrap">
+            <h1><a href="/main"></a></h1>
+            <div class="topMenuWrap">
+                <ul class="topMenu">
+                    <li><a href="/로그인" target="blank">로그인</a></li>
+                    <li><a href="/회원가입" target="black">회원가입</a></li>
+                    <li><a href="/회원가입" target="black">고객의 소리</a></li>
+                    <li><a href="/회원가입" target="black">사이트맵</a></li>
+                </ul>
+            </div>
+        </div>
+    </header> 
+    
+    <div class="wrap">
+        <div class="gnb-box">
+            <nav id="gnb" class="gnb">
+                <div class="gnb-layout">
+                    <button class="btn-allmenu" type="button" style></button>
+                    <button class="btn-close" type="button" style="display: none;"></button>
+                    <div class="gnb-wrap">
+                        <ul class="gnbList">
+                            <li><a href="의료원장인사말.html">병원소개</a></li>
+                            <li><a href="">진료예약</a></li>
+                            <li><a href="">진료과/의료진</a></li>
+                            <li><a href="">고객서비스</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="header-quickbtn">
+                <button type="button" class="qbtn1">첫방문예약</button>
+                <button type="button" class="qbtn2">나의차트</button>
+            </div>
+        </div>    
+        
+        <section class="opensection-wrap" style="display: block;">
+            <div class="subnav-wrap">
+                <div class="common-layout">
+                    <div class="opensection-nav">
+                        <div class="gnb2-wrap">
+                            <ul class="gnb-2depth">
+                                <li><a href="의료원장인사말.html">의료원장인사말</a></li>
+                                <li><a href="연혁.html">연혁</a></li>
+                                <li><a href="뉴스기사.html">이젠뉴스</a></li>
+                                <li><a href="오시는길.html">오시는길</a></li>
+                            </ul>
+                        </div>
+                        <div class="gnb2-wrap">
+                            <ul class="gnb-2depth">
+                                <li><a href="">회원예약</a></li>
+                                <li><a href="">비회원예약</a></li>
+                                <li><a href="">비회원예약조회</a></li>
+                                <li><a href="">재외국민 의료상담</a></li>
+                            </ul>
+                        </div>
+                        <div class="gnb2-wrap">
+                            <ul class="gnb-2depth">
+                                <li><a href="">진료과 및 의료진</a></li>
+                                <li><a href="">전문센터</a></li>
+                                <li><a href="">전문클리닉</a></li>
+                                <li><a href="">지원부서</a></li>
+                            </ul>
+                        </div>
+                        <div class="gnb2-wrap">
+                            <ul class="gnb-2depth">
+                                <li><a href="">마이페이지</a></li>
+                                <li><a href="">고객문의</a></li>
+                                <li><a href="">내예약정보</a></li>
+                                <li><a href="">내정보수정</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="opensection-area2">
+                        <div class="opensection-img">
+                            <a href="">설문조사</a>
+                            <p>새로운 병원 홈페이지</p>
+                            <p>소중한 의견을 작성해주세요</p>
+                        </div>
+                        <div class="opensection-text">
+                            <button class="seBtn">인터넷 진료예약</button>
+                            <button class="seBtn">예약확인 / 취소</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>    
+
+
+
+
+
+
+
+
     <section class="location-wrap">
         <div class="common-layout">
             <div>
@@ -201,38 +296,9 @@
                       </svg></button>     
             <div class="location-nav-wrap">
                 <span>병원소개 > 오시는 길</span>
-                <!-- <ul class="location">
-                    <li>
-                        <a href="">병원소개</a>
-                    </li>
-                    <li>
-                        <a href="">예약문의</a>
-                    </li>
-                    <li>
-                        <a href="">의료진소개</a>
-                    </li>
-                    <li>
-                        <a href="">고객서비스</a>
-                    </li>
-                </ul> -->
+               
             </div>
-            <!-- <div class="location-nav-wrap">
-                <span>의료원장인사말</span>
-                <ul class="location">
-                    <li>
-                        <a href="의료원장인사말.html">의료원장인사말</a>
-                    </li>
-                    <li>
-                        <a href="연혁.html">연혁</a>
-                    </li>
-                    <li>
-                        <a href="뉴스기사.html">뉴스기사</a>
-                    </li>
-                    <li>
-                        <a href="오시는길.html">오시는길</a>
-                    </li>
-                </ul>
-                </div> -->
+    
             </div>
         </div>
     </section>
@@ -251,7 +317,7 @@
                         <a href="#tab1" class="tabBtn" >인천이젠병원</a>
                     </li>
                     <li>
-                        <a href="#tab2" class="tabBtn" onclick="re()">서울이젠병원</a>
+                        <a href="#tab2" class="tabBtn" >서울이젠병원</a>
                     </li>
                     <li>
                         <a href="#tab3" class="tabBtn" >수원이젠병원</a>
@@ -830,54 +896,141 @@
       
 
         </div>
+
+    </div>
+
+    <footer class="footer" id="footer">
+        
+        <div class="footerInner">
+            <ul class="footerList">
+                <li>
+                    <a class="aCol" href="">비급여진료비용</a>
+                </li>
+                <li>
+                    <a href="">환자권리장전</a>
+                </li>
+                <li>
+                    <a href="">이용약관</a>
+                </li>
+                <li>
+                    <a class="aCol" href="">개인정보 처리방침</a>
+                </li>
+                <li>
+                    <a href="">정보공개</a>
+                </li>
+                <li>
+                    <a href="">정보무단수집거부공개</a>
+                </li>
+                <li>
+                    <a href="">뷰어 다운로드</a>
+                </li>
+                <li>
+                    <a href="">진료협력센터</a>
+                </li>
+                <li>
+                    <a href="">장례식장</a>
+                </li>
+            </ul>
+
+            <div class="footerInfo">
+                <div class="infoWrap">
+                    <div class="adr-box">
+                        <p>주소: 21431]인천광역시 부평구 동수로 56 인천이젠병원 </p>
+                        <p class="mgp">
+                            <a href="">대표전화: 1588-6064</a>
+                            <a href=""> / 홈페이지 의견접수</a>
+                        </p>
+                        <p class="copy">
+                            COPYRIGHT 2024 SEOUL NATIONAL UNIVERSITY HOSPITAL. ALL RIGHTS RESERVED
+                        </p>
+                    </div>
+                    <div class="sns-box">
+                        <ul class="sns-wrap">
+                            <li>
+                                <img src="../image/ico_circle_blog.png" alt="">
+                            </li>
+                            <li>
+                                <img src="../image/ico_circle_facebook.png" alt="">
+                            </li>
+                            <li>
+                                <img src="../image/ico_circle_insta.png" alt="">
+                            </li>
+                            <li>
+                                <img src="../image/ico_circle_post.png" alt="">
+                            </li>
+                            <li>
+                                <img src="../image/ico_circle_youtube.png" alt="">
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+        
+        <a href="" onclick="moveTop();" class="btn-top"></a>
+    </footer>
       
         <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fcf1f6e85818f27f79f4b617eb304a80"></script>
 
-
-    
         <script>
             const tabList = document.querySelectorAll('.tab_sty01 .fix li');
             const contents = document.querySelectorAll('.map-list');
+            
 
-            if (tabList.length > 0 && contents.length > 0) {
-                tabList[0].classList.add('on');
-                contents[0].classList.add('active');
-            }
-    
+            const mapCoordinates = {
+                '#map1': { lat: 37.459849319662496, lng: 126.63498155504057 },
+                '#map2': { lat: 37.50132772672766, lng: 127.00584400966045 },
+                '#map3': { lat: 37.28061008558938, lng: 127.04866181080385 },
+                '#map4': { lat: 35.17338003969457, lng: 129.18143465693686 },
+                '#map5': { lat: 35.84032533369457, lng: 128.56765727563183 }
+            };
+
+
             tabList.forEach(tab => {
                 tab.querySelector('.tabBtn').addEventListener('click', function(e) {
                     e.preventDefault();
-    
+            
                     // 모든 탭과 컨텐츠 숨기기
                     tabList.forEach(t => t.classList.remove('on'));
                     contents.forEach(content => content.classList.remove('active'));
-
-
-    
+            
                     // 현재 클릭된 탭 활성화 및 컨텐츠 표시
                     this.parentNode.classList.add('on');
-
                     const activeCont = this.getAttribute('href');
-                    document.querySelector(activeCont).classList.add('active');
-                    
-                    
-                    
+                    const activeContent = document.querySelector(activeCont);
+            
+                    // 탭 내용 활성화
+                    activeContent.classList.add('active');
+            
+                    // 지도의 ID 추출 및 relayout() 호출
+                    const mapId = `#map${activeCont.slice(-1)}`;
+                    const map = window.maps && window.maps[mapId];
+                    if (map) {
+                        // 지도의 레이아웃을 업데이트
+                        map.relayout();
+                        
+                        // 탭에 맞는 좌표를 가져옵니다.
+                        const coords = mapCoordinates[mapId];
+                        if (coords) {
+                            const newCenter = new kakao.maps.LatLng(coords.lat, coords.lng);
+                            map.setCenter(newCenter);
+                        }
+                    }
+
                 });
             });
             
-        </script>
-        
-
-        <script>
             function initializeMap(containerId, lat, lng, title) {
                 var mapContainer = document.getElementById(containerId),
-                mapOption = {
-                    center: new kakao.maps.LatLng(lat, lng),
-                    level: 3
-                };
+                    mapOption = {
+                        center: new kakao.maps.LatLng(lat, lng),
+                        level: 3
+                    };
                 
                 var map = new kakao.maps.Map(mapContainer, mapOption);
-                
                 
                 var markerPosition = new kakao.maps.LatLng(lat, lng);
                 var marker = new kakao.maps.Marker({
@@ -885,43 +1038,34 @@
                 });
                 marker.setMap(map);
                 
-            
-                
-                var iwContent = `<div style="padding:5px;">${title}<br><a href="https://map.kakao.com/link/map/${title},${lat},${lng}" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/${title},${lat},${lng}" target="_blank">길찾기</a></div>`,
+                var iwContent = `<div style="padding:5px; margin-left :20px;">${title}</div>`,
                     iwPosition = new kakao.maps.LatLng(lat, lng);
-    
+            
                 var infowindow = new kakao.maps.InfoWindow({
                     position: iwPosition,
                     content: iwContent
-                }); 
-                
-    
+                });
+            
                 infowindow.open(map, marker);
                 
-                
+                // 전역 객체에 지도 인스턴스 저장
+                window.maps = window.maps || {};
+                window.maps[`#${containerId}`] = map;
             }
-    
+            
+            // 페이지 로드 시 지도 초기화
             window.onload = function() {
                 initializeMap('map1', 37.459849319662496, 126.63498155504057, '인천이젠병원');
                 initializeMap('map2', 37.50132772672766, 127.00584400966045, '서울이젠병원');
-                initializeMap('map3', 37.28061008558938, 127.04866181080385, '수원이젠병원'); 
-                initializeMap('map4', 35.17338003969457, 129.18143465693686, '부산이젠병원'); 
-                initializeMap('map5', 35.84032533369457, 128.56765727563183, '대구이젠병원'); 
+                initializeMap('map3', 37.28061008558938, 127.04866181080385, '수원이젠병원');
+                initializeMap('map4', 35.17338003969457, 129.18143465693686, '부산이젠병원');
+                initializeMap('map5', 35.84032533369457, 128.56765727563183, '대구이젠병원');
             }
-
-        
-
-            function relayout() {    
-    
-                // 지도를 표시하는 div 크기를 변경한 이후 지도가 정상적으로 표출되지 않을 수도 있습니다
-                // 크기를 변경한 이후에는 반드시  map.relayout 함수를 호출해야 합니다 
-                // window의 resize 이벤트에 의한 크기변경은 map.relayout 함수가 자동으로 호출됩니다
-                map.relayout();
-            }
-
-    
         </script>
 
         
+<script src="footer.js"></script>
+<script src="header.js"></script>
 
+</body>
 </html>

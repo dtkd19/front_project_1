@@ -1,6 +1,4 @@
-
 .wrap{
-overflow: hidden;
 background-color: white;
 width: 100%;
 }
@@ -10,9 +8,12 @@ margin: 0 auto;
 width: 1180px;
 }
 
+.header{
+    position: relative;
+}
+
 .header h1{
 height: 80px;
-
 border-bottom: 1px solid gray;
 
 }
@@ -51,7 +52,6 @@ justify-content: center;
 padding: 20px;
 width: 100%;
 border-bottom: 1px solid gray;
-width: 1180px;
 box-sizing: border-box;
 }
 .gnbList{
@@ -204,4 +204,12 @@ background-color: #199da3 ;
 font-weight: 700;
 font-size: 15px;
 color: white;
+}
+
+.gnb-box {
+    position: sticky; /* 스크롤 시 고정되도록 설정 */
+    top: 0; /* 상단에 고정 */
+    z-index: 100; /* 다른 요소보다 위에 표시되도록 설정 */
+    background-color: white; /* 배경색 설정 (배경이 투명하면 다른 요소가 보일 수 있으므로) */
+    border-bottom: 1px solid gray; /* 하단 테두리 추가 (선택 사항) */
 }
