@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import "reset.css";
+        @import "header.css";
+        @import "footer.css";
+        @import "signup_main.css";
+    </style>
+
+</head>
+<!-- 
+    < 수정 / 추가한 부분 >
+    1. <div class="title-inner"> 추가
+    2. '*'에 <em> 태그 추가 
+    3. <div class="private-content"> 바깥에 <article> 추가
+    4. 회원가입 table 형식으로 수정
+    5. 주소 입력창(class 이름 확인해 주세요! 두번째 주소창 class="input-add2 left")
+-->
+<body>
+    <header id="header" class="header">
+        <div class="innerWrap">
+            <h1><a href="main_page_login.html"></a></h1>
+            <div class="topMenuWrap">
+                <ul class="topMenu">
+                    <li><a href="login.html" target="blank">로그인</a></li>
+                    <li><a href="signup_intro.html" target="black">회원가입</a></li>
+                    <li><a href="/회원가입" target="black">고객의 소리</a></li>
+                    <li><a href="/회원가입" target="black">사이트맵</a></li>
+                </ul>
+            </div>
+        </div>
+    </header> 
+    
+    <div class="wrap">
+        <div class="gnb-box">
+            <nav id="gnb" class="gnb">
+                <div class="gnb-layout">
+                    <button class="btn-allmenu" type="button" style></button>
+                    <button class="btn-close" type="button" style="display: none;"></button>
+                    <div class="gnb-wrap">
+                        <ul class="gnbList">
+                            <li><a href="의료원장인사말.html">병원소개</a></li>
+                            <li><a href="reservation.html">진료예약</a></li>
+                            <li><a href="doctor.html">진료과/의료진</a></li>
+                            <li><a href="my_page.html">고객서비스</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="header-quickbtn">
+                <a href="firstReservation.html"><button type="button" class="qbtn1">첫방문예약</button></a>
+                <button type="button" class="qbtn2">나의차트</button>
+            </div>
+        </div>    
+        
+        <section class="opensection-wrap" style="display: block;">
+            <div class="subnav-wrap">
+                <div class="common-layout">
+                    <div class="opensection-nav">
+                        <div class="gnb2-wrap">
+                            <ul class="gnb-2depth">
+                                <li><a href="의료원장인사말.html">의료원장인사말</a></li>
+                                <li><a href="연혁.html">연혁</a></li>
+                                <li><a href="뉴스기사.html">이젠뉴스</a></li>
+                                <li><a href="오시는길.html">오시는길</a></li>
+                            </ul>
+                        </div>
+                        <div class="gnb2-wrap">
+                            <ul class="gnb-2depth">
+                                <li><a href="reservation.html">회원예약</a></li>
+                                <li><a href="firstReservation.html">비회원예약</a></li>
+                                <li><a href="">비회원예약조회</a></li>
+                                <li><a href="">재외국민 의료상담</a></li>
+                            </ul>
+                        </div>
+                        <div class="gnb2-wrap">
+                            <ul class="gnb-2depth">
+                                <li><a href="doctor.html">진료과 및 의료진</a></li>
+                                <li><a href="center.html">전문센터</a></li>
+                                <li><a href="clinic.html">전문클리닉</a></li>
+                                <li><a href="">지원부서</a></li>
+                            </ul>
+                        </div>
+                        <div class="gnb2-wrap">
+                            <ul class="gnb-2depth">
+                                <li><a href="my_page.html">내정보수정</a></li>
+                                <li><a href="">마이페이지</a></li>
+                                <li><a href="">고객문의</a></li>
+                                <li><a href="">내예약정보</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="opensection-area2">
+                        <div class="opensection-img">
+                            <a href="">설문조사</a>
+                            <p>새로운 병원 홈페이지</p>
+                            <p>소중한 의견을 작성해주세요</p>
+                        </div>
+                        <div class="opensection-text">
+                            <button class="seBtn">인터넷 진료예약</button>
+                            <button class="seBtn">예약확인 / 취소</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>    
+
+      <!-- signup main start -->
+    <article>
+        <div class="private-content">
+            <div class="tab-wrap">
+                <!-- <div role="tablist" class="nav-list">
+                    <a id="tab1" href="">정보 작성</a>
+                </div> -->
+                <div class="title-wrap">
+                    <h1>회원가입</h1>
+                </div>
+                <form>
+                    <div class="member-wrap">
+                        <span class="infomust"> <em> * </em> 필수 항목 </span>
+                            <table class="info-wrap">
+                            <tr>
+                                <th> 
+                                    <em> * </em> <span class="info-name center"> 성명 </span>
+                                </th>
+                                <td> 
+                                    <div class="left"> 
+                                        <input type="text" id="name" class="userInfo">
+                                        <span class="name-notify notify"></span> 
+                                    </div>
+                                </td>    
+                            </tr>
+                            <!-- id 추가함 -->
+                            <tr>
+                                <th> 
+                                    <em> * </em> <span class="info-name center"> 아이디 </span>
+                                </th>
+                                <td> 
+                                    <div class="left"> 
+                                        <input type="text" id="id" class="userInfo">
+                                        <span class="id-notify notify"></span> 
+                                    </div>
+                                </td>    
+                            </tr>
+                            <tr>
+                                <th> 
+                                    <em> * </em> <span class="info-id center"> 비밀번호 </span>
+                                </th>
+                                <td>
+                                    <div class="left">
+                                        <input type="text" id="password" class="userInfo password">
+                                        <span class="password-notify notify"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <em> * </em> <span class="info-email center"> 이메일 </span>
+                                </th>
+                                <td> 
+                                    <div class="email-wrap left">
+                                        <input type="text" class="userInfo email" id="email">
+                                        <span class="input-text"> @ </span>
+                                        <input type="text" id="emailDomain" class="userInfo email">
+                                        <select name="email-address" id="emailSelect">
+                                            <option value>직접입력</option>
+                                            <option value="naver.com">naver.com</option>
+                                            <option value="daum.net">daum.net</option>
+                                            <option value="gmail.com">gmail.com</option>
+                                        </select>
+                                        <span class="email-notify notify"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <em> * </em> <span class="info-phone center"> 연락처 </span>
+                                </th>
+                                <td> 
+                                    <div class="phone-num left">
+                                        <!-- <input type="text" id="phone01" class="disabled" value="010" disabled> -->
+                                        <select class="userInfo number" id="phone01">
+                                            <option value=""> 선택 </option>
+                                            <option value="010"> 010 </option>
+                                            <option value="011"> 011 </option>
+                                            <option value="016"> 016 </option>
+                                            <option value="017"> 017 </option>
+                                            <option value="018"> 018 </option>
+                                            <option value="019"> 019 </option>
+                                        </select>
+                                        <span class="input-text"> - </span>
+                                        <input type="text" id="phone02" class="userInfo">
+                                        <span class="input-text"> - </span>
+                                        <input type="text" id="phone03" class="userInfo">
+                                        <span class="phone-notify notify"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="last"> 
+                                <th> <span class="info-add center"> 주소 </span></th>
+                                <td>
+                                    <div class="input-add left">
+                                        <input type="text" id="postcode" class="userInfo">
+                                        <button type="button" onclick="execDaumPostcode()" class="btn addrBtn">
+                                        <span> 주소 찾기 </span></button>
+                                        <span class="address-notify notify"></span>
+                                    </div>
+                                    <div class="input-add2 left">
+                                        <input type="text" id="homeAddress" class="userInfo">
+                                        <input type="text" id="detailAddress" class="userInfo" placeholder="상세 주소를 입력해 주세요.">
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="submit-wrap">
+                        <button type="button" id="confirm" class="confirm btn"> <span> 회원가입 </span></button>
+                        <button type="reset" id="nextTime" class="next-time btn"><span> 가입 취소 </span></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </article>
+
+    <!-- footer start -->
+</div>
+    <footer class="footer" id="footer">
+        
+        <div class="footerInner">
+            <ul class="footerList">
+                <li>
+                    <a class="aCol" href="">비급여진료비용</a>
+                </li>
+                <li>
+                    <a href="">환자권리장전</a>
+                </li>
+                <li>
+                    <a href="">이용약관</a>
+                </li>
+                <li>
+                    <a class="aCol" href="">개인정보 처리방침</a>
+                </li>
+                <li>
+                    <a href="">정보공개</a>
+                </li>
+                <li>
+                    <a href="">정보무단수집거부공개</a>
+                </li>
+                <li>
+                    <a href="">뷰어 다운로드</a>
+                </li>
+                <li>
+                    <a href="">진료협력센터</a>
+                </li>
+                <li>
+                    <a href="">장례식장</a>
+                </li>
+            </ul>
+
+            <div class="footerInfo">
+                <div class="infoWrap">
+                    <div class="adr-box">
+                        <p>주소: 21431]인천광역시 부평구 동수로 56 인천이젠병원 </p>
+                        <p class="mgp">
+                            <a href="">대표전화: 1588-6064</a>
+                            <a href=""> / 홈페이지 의견접수</a>
+                        </p>
+                        <p class="copy">
+                            COPYRIGHT 2024 SEOUL NATIONAL UNIVERSITY HOSPITAL. ALL RIGHTS RESERVED
+                        </p>
+                    </div>
+                    <div class="sns-box">
+                        <ul class="sns-wrap">
+                            <li>
+                                <img src="../image/ico_circle_blog.png" alt="">
+                            </li>
+                            <li>
+                                <img src="../image/ico_circle_facebook.png" alt="">
+                            </li>
+                            <li>
+                                <img src="../image/ico_circle_insta.png" alt="">
+                            </li>
+                            <li>
+                                <img src="../image/ico_circle_post.png" alt="">
+                            </li>
+                            <li>
+                                <img src="../image/ico_circle_youtube.png" alt="">
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+        
+        <a href="" onclick="moveTop();" class="btn-top"></a>
+    </footer>
+
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="private_address.js"></script>
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+    <script src="signup_main.js"></script>
+    <!-- <script src="/signup_info.js"></script> 확인 후 해당 주석 풀면 됩니다! -->
+</body>
+</html>

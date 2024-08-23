@@ -1,0 +1,107 @@
+/* title area */
+.signup-content>.title-wrap{
+    width: 1180px;
+    margin: 0 auto 60px;
+    padding-top: 100px;
+
+    text-align: center;
+}
+.signup-content>.title-wrap>.title-text{
+    font-size: 30px;
+    font-weight: 400;
+}
+.signup-content>.title-wrap>.signup-text1{
+    margin-top: 20px;
+
+    font-size: 18px;
+    color: #3a3a3a;
+    font-weight: normal;
+}
+
+/* button area */
+.btn-wrap{
+    width: 880px;
+    margin: 100px auto 80px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    place-items: center;
+    gap: 10px;
+}
+.btn-wrap>button{
+    width: 280px;
+    border: 3px solid #c0baba;
+    border-top-left-radius: 30px;
+
+    font-size: 24px;    
+    position: relative;
+}
+.btn-wrap>button:nth-child(3){
+    grid-column: span 2;
+}
+.btn-wrap>button:hover{
+    cursor: pointer;
+    background-image: linear-gradient(rgb(0, 105, 85), rgb(0, 42, 119));
+    color: white;
+}
+.btn-wrap>.btn>.btn-icon{
+    margin: 0 auto;
+    width: 145px;
+    height: 125px;
+    display: block;
+    margin-bottom: 27px;
+}
+.btn-wrap>.normal>.btn-icon{
+    background: url(/image/logIn_img/signup-adult.png) no-repeat;
+    background-position: center;
+}
+.btn-wrap>.child>.btn-icon{
+    background: url(/image/logIn_img/signup-child.png) no-repeat;
+    background-position: center;
+}
+.btn-wrap>.foreign>.btn-icon{
+    background: url(/image/logIn_img/signup-foreign.png) no-repeat;
+    background-position: center;
+}
+.btn-wrap>.btn>.btn-text{
+    width: 100%;
+    display: block;
+
+    font-size: 25px;
+    font-weight: 500;
+}
+.btn-wrap>.btn>.btn-age{
+    width: 100%;
+    padding: 30px 0px 50px;
+
+    font-size: 17px;
+    font-weight: 500;
+}
+
+/* caution area */
+.signup-content>.etc-wrap{
+    width: 70%;
+    margin: 0px auto 40px;
+    padding: 30px;
+    background: #e6e6e6;
+}
+.signup-content>.etc-wrap>.title-wrap{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.etc-wrap>.title-wrap>.caution-icon{
+    width: 50px;
+    height: 50px;
+    background: url(/image/logIn_img/signup-caution.png) no-repeat;
+}
+.etc-wrap>.title-wrap>.title-text{
+    margin-left: 10px;
+
+    font-size: 20px;
+    font-weight: 600;
+}
+.etc-wrap>.etc-ul>li{
+    margin-top: 10px;
+}

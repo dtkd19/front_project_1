@@ -9,10 +9,11 @@
         @import "reset.css";
         @import "header.css";
         @import "footer.css";
+        @import "bar.css";
      
         .location-wrap {
             height: 60px;
-            background-color: #006955;
+            background-color: rgb(2, 114, 90);
             box-sizing: border-box;
         }  
         .btn-home {
@@ -20,7 +21,7 @@
             height: 60px;
             border: none;
             border-right: 1px solid gray;
-            background-color: #006955;
+            background-color: rgb(2, 114, 90);
             cursor: pointer;
         }
         .common-layout {
@@ -69,16 +70,27 @@
             text-align: center;
         }
         .tab_sty01>ul{
-            width: 1000px;
+            width: 1180px;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         }
         .tab_sty01>ul>li>a{
             text-decoration: none;
             color: black;
+            /* font-weight: bold; */
+            font-size: 24px;
+        }
+        .tab_sty01>ul>li.on>a{
+            text-decoration: none;
+            color: rgb(2, 114, 90);
             font-weight: bold;
             font-size: 24px;
         }
+
+        .tab_sty01>ul>li>a:hover{
+            color: rgb(2, 114, 90);
+        }
+
         .map{
             margin-bottom: 50px;
             width: 100%;
@@ -101,12 +113,12 @@
         }
         .tab_sty01 li {
         /* border-bottom: 1px solid #006955; */
-            border-bottom: 3px solid #006955;
+            border-bottom: 3px solid rgb(2, 114, 90);
             list-style: none;
             padding: 20px;
         }
         .tab_sty01 ul .on{
-            border: 3px solid #006955;
+            border: 3px solid rgb(2, 114, 90);
             border-bottom: none;
             border-radius: 7px;
             border-bottom-right-radius: 0px;
@@ -192,13 +204,14 @@
     </style>
 </head>
 <body>
-    <header id="header" class="header">
+       <!-- header -->
+       <header id="header" class="header">
         <div class="innerWrap">
-            <h1><a href="/main"></a></h1>
+            <h1><a href="main_page_logout.html"></a></h1>
             <div class="topMenuWrap">
                 <ul class="topMenu">
-                    <li><a href="/로그인" target="blank">로그인</a></li>
-                    <li><a href="/회원가입" target="black">회원가입</a></li>
+                    <li><a href="main_page_login.html" target="blank">로그아웃</a></li>
+                    <li><a href="signup_intro.html" target="black">회원가입</a></li>
                     <li><a href="/회원가입" target="black">고객의 소리</a></li>
                     <li><a href="/회원가입" target="black">사이트맵</a></li>
                 </ul>
@@ -215,15 +228,15 @@
                     <div class="gnb-wrap">
                         <ul class="gnbList">
                             <li><a href="의료원장인사말.html">병원소개</a></li>
-                            <li><a href="">진료예약</a></li>
-                            <li><a href="">진료과/의료진</a></li>
-                            <li><a href="">고객서비스</a></li>
+                            <li><a href="reservation.html">진료예약</a></li>
+                            <li><a href="doctor.html">진료과/의료진</a></li>
+                            <li><a href="my_page.html">고객서비스</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
             <div class="header-quickbtn">
-                <button type="button" class="qbtn1">첫방문예약</button>
+                <a href="firstReservation.html"><button type="button" class="qbtn1">첫방문예약</button></a>
                 <button type="button" class="qbtn2">나의차트</button>
             </div>
         </div>    
@@ -242,26 +255,26 @@
                         </div>
                         <div class="gnb2-wrap">
                             <ul class="gnb-2depth">
-                                <li><a href="">회원예약</a></li>
-                                <li><a href="">비회원예약</a></li>
+                                <li><a href="reservation.html">회원예약</a></li>
+                                <li><a href="firstReservation.html">비회원예약</a></li>
                                 <li><a href="">비회원예약조회</a></li>
                                 <li><a href="">재외국민 의료상담</a></li>
                             </ul>
                         </div>
                         <div class="gnb2-wrap">
                             <ul class="gnb-2depth">
-                                <li><a href="">진료과 및 의료진</a></li>
-                                <li><a href="">전문센터</a></li>
-                                <li><a href="">전문클리닉</a></li>
+                                <li><a href="doctor.html">진료과 및 의료진</a></li>
+                                <li><a href="center.html">전문센터</a></li>
+                                <li><a href="clinic.html">전문클리닉</a></li>
                                 <li><a href="">지원부서</a></li>
                             </ul>
                         </div>
                         <div class="gnb2-wrap">
                             <ul class="gnb-2depth">
+                                <li><a href="my_page.html">내정보수정</a></li>
                                 <li><a href="">마이페이지</a></li>
                                 <li><a href="">고객문의</a></li>
                                 <li><a href="">내예약정보</a></li>
-                                <li><a href="">내정보수정</a></li>
                             </ul>
                         </div>
                     </div>
@@ -278,27 +291,18 @@
                     </div>
                 </div>
             </div>
-        </section>    
+        </section>      
 
-
-
-
-
-
-
-
+    <!-- header -->
+    <!-- bar -->
     <section class="location-wrap">
         <div class="common-layout">
             <div>
-                <button type="button" class="btn-home" onclick="location.href= 'home' ">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
-                        <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4z"/>
-                      </svg></button>     
-            <div class="location-nav-wrap">
-                <span>병원소개 > 오시는 길</span>
-               
-            </div>
-    
+                <button type="button" class="btn-home"><img class="btn-icon" src="image/home_icon_img.png" alt=""></button>     
+                <div class="location-nav-wrap">
+                    <span>병원소개 > 오시는 길</span>
+
+                </div>     
             </div>
         </div>
     </section>
@@ -817,7 +821,7 @@
                                             <th rowspan="2">셔틀버스</th>
                                             <td>1호선</td>
                                             <td>안지랑역 4번 출구, 서부정류장역 3번출구 건너</td>
-                                            <td rowspan="2"> 08:20 ~ 17:20 30분간격운행</td>
+                                            <td rowspan="2"> 08:20 ~ 17:20 <br>30분간격운행</td>
                                         </tr>
                                         <tr>
                                             <td>2호선</td>
@@ -898,7 +902,8 @@
         </div>
 
     </div>
-
+</div>
+<!-- footer -->
     <footer class="footer" id="footer">
         
         <div class="footerInner">

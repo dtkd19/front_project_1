@@ -1,0 +1,146 @@
+.section_now{
+    background-image: url(image/main_now_bg.jpg); 
+    color: white;
+    padding-bottom: 50px;
+    width: 100vw;
+    height: 100vh;
+
+}
+.section_now>.now_wrap{
+    width: 1180px;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 100px;
+}        
+.section_now>.now_wrap>h2{
+    font-size: 92px;
+    letter-spacing: -4px;
+}
+.section_now>.now_wrap>h2::after{
+    content: '';
+    width: 700px;
+    height: 2px;
+    background: white;
+    position: absolute;
+    top: 182px;
+    left: -690px;
+}
+
+.section_now>.now_wrap>.h2_bottom{
+    font-size: 20px;
+    margin-top: 9px;
+    line-height: 34px;
+}
+.section_now>.now_wrap>.box_top{
+    height: 300px;
+    margin-top: 60px;
+    background-image: url(image/main_now_lolling_02_191213.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+    padding-top: 72px;
+    border-radius: 30px 30px 0 0;
+    position: relative;
+    
+}
+.section_now>.now_wrap>.box_top .text{
+    font-size: 20px;
+    margin-bottom: 17px;
+    text-align: center;
+}
+.section_now>.now_wrap>.box_top .tit{
+    font-size: 40px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+.section_now>.now_wrap>.box_top button{
+    display: inline-block;
+    border-radius: 0;
+    border: 1px solid #fff;
+    margin-left: 6px;
+    padding: 10px 25px;
+    background: 0 0;
+    font-size: 15px;
+    color: #fff;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 70%;
+    left: 50%;
+}
+
+.section_now>.now_wrap>.box_bottom .left .box_icon{
+    width: 33px;
+    height: 33px;
+    background: url(image/icon_main.png) -120px -120px no-repeat;
+}
+.section_now>.now_wrap>.box_bottom .center .box_icon{
+    width: 33px;
+    height: 33px;
+    background: url(image/icon_main.png) -160px -120px no-repeat;
+}
+.section_now>.now_wrap>.box_bottom .right .box_icon{
+    width: 33px;
+    height: 33px;
+    background: url(image/icon_main.png) -120px -120px no-repeat;
+}
+.section_now>.now_wrap>.box_bottom .t{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.section_now>.now_wrap>.box_bottom{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.section_now>.now_wrap>.box_bottom h3{
+    font-size: 24px;
+    color: black;
+}
+.section_now>.now_wrap>.box_bottom ul{
+    margin-top: 30px;
+    
+}
+.section_now>.now_wrap>.box_bottom ul>li>a::after{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    margin-top: -1px;
+    width: 3px;
+    height: 3px;
+    background: url(/image/icon_list.png) left top no-repeat;
+}
+
+.section_now>.now_wrap>.box_bottom ul>li{
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 15px;
+    position: relative;
+}
+.section_now>.now_wrap>.box_bottom .box_b{
+    background-color: white;
+    padding: 30px;
+}
+
+.section_now>.now_wrap>.box_bottom .box_b a{
+    width: 230px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    margin-left: 10px;
+}
+.section_now>.now_wrap>.box_bottom .box_b .data{
+    font-size: 15px;
+    color: #777;
+    display: inline-block;
+    width: 65px;
+    margin-left: 20px;
+}
+
+
+

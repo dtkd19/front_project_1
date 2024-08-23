@@ -1,0 +1,105 @@
+/* common style*/
+body{
+    padding: 0px;
+    margin: 0px;
+    font-size: 16px;
+}
+
+/* container, p */
+.login-content{
+    position: relative;
+    width: 1180px;
+    margin: 0 auto 100px;
+    min-height: 400px;
+}
+.login-content>.login-box{
+    width: 980px;
+    height: 620px;
+    margin: 100px auto 0;
+
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    text-align: center;
+}
+.login-content>.login-box>.title-text{
+    margin-top: 95px;
+
+    font-size: 30px;
+    font-weight: lighter;
+}
+.login-content>.login-box>.login-text1{
+    margin-top: 20px;
+
+    font-size: 18px;
+    color: rgb(105, 105, 105);
+}
+
+/* input area */
+.login-content>.login-box>.input-wrap{
+    width: 715px;
+    margin: 50px auto 0;
+
+    position: relative;
+}
+.input-wrap>form>label>input{
+    height: 55px;
+    width: 530px;
+    padding: 0px 20px;
+    margin-bottom: 10px;
+
+    display: block;
+    font-size: 16px;
+}
+.input-wrap>form>button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    border-top-left-radius: 20px;
+
+    width: 130px;
+    height: 130px;
+    font-size: 18px;
+
+    color: white;
+    background-color: rgb(0, 105, 85);
+}
+.input-wrap>form>button:hover{
+    cursor: pointer;
+    background-color: rgb(0, 51, 41)
+}
+
+/* info missing area */
+.login-content>.login-box>.login-text2{
+    color: rgb(105, 105, 105);
+    font-size: 16px;
+    margin-top: 80px;
+}
+.login-box>.button-wrap{
+    margin-top: 30px;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+.login-box>.button-wrap>a>button{
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-top-left-radius: 20px;
+
+    font-size: 16px;
+    color: white;
+}
+.button-wrap>a:nth-child(1)>button{
+    background-color: rgb(0, 105, 85);
+}
+.button-wrap>a:nth-child(2)>button{
+    background-color: rgb(0, 11, 105);
+}
+.button-wrap>a:nth-child(3)>button{
+    background-color: rgb(54, 54, 54);
+}
+.login-box>.button-wrap>a>button:hover {
+    cursor: pointer;
+}

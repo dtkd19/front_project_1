@@ -24,7 +24,7 @@ top: 18px;
 width: 239px;
 height: 40px;
 margin: auto;
-background: url(../image/logo.png) no-repeat 0 0;
+background: url(image/logo.png) no-repeat 0 0;
 background-size: contain;
 }
 
@@ -95,8 +95,11 @@ background-color: #0770bb;
 color: #fff;
 border: none;
 cursor: pointer;
+font-size: 16px;
+margin-right: 5px;
 }
 .qbtn2{
+    font-size: 16px;
 width: 135px;
 height: 72px;
 color: white;
@@ -188,7 +191,7 @@ box-sizing: content-box;
 .opensection-img a{
 font-size: 20px;
 font-weight: bold;
-color: #006955;
+color: rgb(2, 114, 90);
 }
 .opensection-text{
 display: flex;

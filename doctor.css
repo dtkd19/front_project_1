@@ -1,0 +1,176 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.container{
+    text-align: center;
+}
+.search_bg{
+    background-image: url(image/dept_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 422px;
+}
+.search_bg .c{
+    background-color: #edeff1;
+    height: 422px;
+}
+.search_bg .search_contents{
+    width: 1180PX;
+    margin: 0 auto;
+}
+.search_bg>.search_contents>.title{
+    font-size: 34px;
+    margin: 0 auto 45px;
+    padding-top: 95px;
+    text-align: center;
+    letter-spacing: -1px;
+    line-height: 45px;
+    font-weight: 320;
+}
+.search_bg>.search_contents>.search{
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    border-radius: 12px 0 0 0;
+}
+.search_bg>.search_contents>.search>input{
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    height: 80px;
+    padding-left: 30px;
+    padding-right: 20px;
+    width: 1070px;
+    outline: none;
+}
+.search_bg>.search_contents>.search>button{
+    border: none;
+    width: 100px;
+    height: 80px;
+    background: url(image/icon_dept.png) no-repeat 22px 18px;
+}
+.search_bg>.search_contents>.btn_list{
+    margin: 20px auto 0;
+}
+
+.choBtn{
+    cursor: pointer;
+}
+
+.search_bg>.search_contents>.btn_list li{
+    display: inline-block;
+}
+.search_bg>.search_contents>.btn_list li>button{
+    width: 35px;
+    height: 35px;
+    border-radius: 35px;
+    background-color: white;
+    font-size: 16px;
+    color: gray;
+    margin-left: 10px;
+    border: none;
+}
+.search_bg>.search_contents>.btn_list li>button.active{
+    background-color: rgb(2, 114, 90);
+    color: white;
+}
+.search_bg>.search_contents>.btn_list .t{
+    /* background-color: rgb(2, 114, 90);
+    color: white; */
+    width: 66px;
+    margin: 0px; 
+}
+.search_bg>.search_contents>.btn_list .etc{
+    width: 100px;
+}
+.contests_dept{
+    width: 1180px;
+    margin: 0 auto 100px;
+    min-height: 400px;
+}
+.contests_dept>.dept_list{
+    padding-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+}
+.contests_dept>.dept_list>li{
+    /* 사이간격 20px */
+    width: 280px;
+    height: 250px;
+    margin-bottom: 100px;
+    margin-right: 15px;
+
+}
+.contests_dept>.dept_list>li>a>.icon{
+    border: 2px solid #dddddd;
+    width: 180px;
+    height: 180px;
+    border-radius: 90px;
+    margin: 0 auto;
+}
+.contests_dept>.dept_list>li>a>.dept_text{
+    margin-top: 30px;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    color: rgb(50, 50, 50);
+}
+.contents_c{
+    width: 1180px;
+    margin: 0 auto 100px;
+    min-height: 400px;
+}
+.contents_c>.c_list{
+    padding-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+}
+.contents_c>.c_list>li{
+    width: 320px;
+    height: 100px;
+    /* border: 2px solid #dddddd; */
+    /* margin-bottom: 70px;
+    margin-right: 35px;
+    margin-left: 35px; */
+    margin: 0 35px 70px 35px;
+}
+
+.contents_c>.c_list>li:hover{
+    width: 320px;
+    height: 100px;
+    border: 2px solid #dddddd;
+    margin-bottom: 70px;
+    box-sizing: border-box;
+}
+
+.contents_c>.c_list>li>a{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+}
+.contents_c>.c_list>li>a>.icon>img{
+    width: 80px;
+    height: 80px;
+}
+.contents_c>.c_list>li>a>.c_text{
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: rgb(50, 50, 50);
+    text-align: left;
+    margin-left: 5px;
+}
+
+/* 탭 */
+.contests_dept>.dept_list .name{
+    display: none;
+}
+
+.contests_dept>.dept_list .name.active{
+    display: block;
+}

@@ -1,7 +1,7 @@
 .section-healthy{
     width: 100vw;
     height: 100vh;
-    background: url(/image/main_section01_bg.jpg) center top;
+    background: url(image/main_section01_bg.jpg) center top;
     position: relative;
 }
 .healthy-wrap{
@@ -107,7 +107,7 @@
     width: 40px;
     height: 40px;
     border: none;
-    background: url(/image/main_section01_search.jpg) no-repeat -120px 9px transparent;
+    background: url(image/main_section01_search.jpg) no-repeat -120px 9px transparent;
 }
 .healthy-info form button:hover{
     cursor: pointer;

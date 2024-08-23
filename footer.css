@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     height: 60px;
-    background-color: #006955;
+    background-color: rgb(2, 114, 90);
     line-height: 40px;
 }
 .footerList li{
@@ -13,9 +13,7 @@
 .footerList li a{
     color: white;
 }
-.footer{
-    margin-top: 100px;
-}
+
 
 .footerList li .aCol{
     color: sandybrown;
@@ -38,7 +36,7 @@
     border-top: 1px solid #22263b;
     display: flex;
     justify-content: center;
-    background-color: #006955;
+    background-color: rgb(2, 114, 90);
 }
 .mgp{
     margin-top: 10px;
@@ -52,17 +50,19 @@
     color: white;
 }
 footer .btn-top {
-    /* display: block; */
+    display: block;
     position: fixed;
     right: 80px;
     bottom: 20px;
     width: 70px;
     height: 70px;
-    background: #0a2054 url(../image/ico_btn_top.png) no-repeat top 25px center;
+    background: url(image/ico_btn_top.png) no-repeat top  center;
     border-radius: 70px;
     color: black;
-    display: none; 
+    /* display: none;  */
     cursor: pointer;
+    z-index: 100;
+    
 }
 @keyframes moveTop {
     0% { opacity: 0; }
@@ -71,4 +71,8 @@ footer .btn-top {
 
 .copy{
     margin-top: 6px;
+}
+
+.sns-wrap li img{
+    cursor: pointer;
 }
