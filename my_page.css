@@ -132,7 +132,7 @@ input[type="text"] :active {
 #phone01, #phone02, #phone03 {
     max-width: 130px;
 }
-#name, #password ,#email, #postcode {
+#name, #id ,#email, #postcode {
     max-width: 240px;
 }
 .email-wrap {

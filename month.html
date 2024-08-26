@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="month.css">
+</head>
+<body>
+    <section class="section_calendar">
+        <div class="calendar_month common">
+            <div class="calendar_title">
+                <button type="button" class="btn_prev disabled" disabled="" aria-label="이전달">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 21" class="ico_arrow">
+                        <path d="M10.5 20.9L.1 10.5 10.5.1l1.4 1.4-9 9 9 9z"></path>
+                    </svg>
+                </button>2024.8
+                <button type="button" class="btn_next" aria-label="다음달">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 21" class="ico_arrow">
+                        <path d="M10.5 20.9L.1 10.5 10.5.1l1.4 1.4-9 9 9 9z"></path>
+                    </svg>
+                </button>
+            </div>
+            <table class="calendar_table">
+                <caption>Calendar Table</caption>
+                <thead class="calendar_header">
+                    <tr>
+                        <th>일</th>
+                        <th>월</th>
+                        <th>화</th>
+                        <th>수</th>
+                        <th>목</th>
+                        <th>금</th>
+                        <th>토</th>
+                    </tr>
+                </thead>
+                <tbody class="calendar_body">
+                    <tr>
+                        <td><button type="button" class="calendar_date dayoff unselectable" disabled="">
+                            <span class="num">28</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable" disabled="">
+                            <span class="num">29</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable" disabled="">
+                            <span class="num">30</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable" disabled="">
+                            <span class="num">31</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable" disabled="">
+                            <span class="num">1</span></button>
+                        </td>
+                        <td>
+                            <button type="button" class="calendar_date unselectable" disabled="">
+                            <span class="num">2</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable" disabled="">
+                            <span class="num">3</span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" class="calendar_date dayoff unselectable" disabled="">
+                            <span class="num">4</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable" disabled="">
+                            <span class="num">5</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable" disabled="">
+                            <span class="num">6</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable" disabled="">
+                            <span class="num">7</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable" disabled="">
+                            <span class="num">8</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable" disabled="">
+                            <span class="num">9</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable" disabled="">
+                            <span class="num">10</span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" class="calendar_date dayoff unselectable" disabled="">
+                            <span class="num">11</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable" disabled="">
+                            <span class="num">12</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable" disabled="">
+                            <span class="num">13</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable" disabled="">
+                            <span class="num">14</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date dayoff unselectable" disabled="">
+                            <span class="num">15</span><span class="text">휴무</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable" disabled="">
+                            <span class="num">16</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable" disabled="">
+                            <span class="num">17</span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" class="calendar_date dayoff unselectable" disabled="">
+                            <span class="num">18</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable" disabled="">
+                            <span class="num">19</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable" disabled="">
+                            <span class="num">20</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable" disabled="">
+                            <span class="num">21</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable" disabled="">
+                            <span class="num">22</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable">
+                            <span class="num">23</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date unselectable" >
+                            <span class="num">24</span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" class="calendar_date dayoff unselectable">
+                            <span class="num">25</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date selected today">
+                            <span class="num">26</span><span class="text">오늘</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date">
+                            <span class="num">27</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date">
+                            <span class="num">28</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date">
+                            <span class="num">29</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date">
+                            <span class="num">30</span></button>
+                        </td>
+                        <td><button type="button" class="calendar_date">
+                            <span class="num">31</span></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="alert_area">
+            <div class="calendar_time_slot active">
+                <div class="time_title">오전</div>
+                <ul class="time_list" >
+                    <li class="time_item">
+                        <button type="button" class="btn_time">9:00</button>
+                    </li>
+                    <li class="time_item">
+                        <button type="button" class="btn_time">9:30</button>
+                    </li>
+                    <li class="time_item">
+                        <button type="button" class="btn_time">10:00</button>
+                    </li>
+                    <li class="time_item">
+                        <button type="button" class="btn_time">10:30</button>
+                    </li>
+                    <li class="time_item">
+                        <button type="button" class="btn_time">11:00</button>
+                    </li>
+                    <li class="time_item">
+                        <button type="button" class="btn_time">11:30</button>
+                    </li>
+                </ul>
+                <div class="time_title">오후</div>
+                    <ul class="time_list">
+                    <li class="time_item">
+                        <button type="button" class="btn_time">12:00</button>
+                    </li>
+                    <li class="time_item">
+                        <button type="button" class="btn_time">12:30</button>
+                    </li>
+                    <li class="time_item">
+                        <button type="button" class="btn_time">1:00</button>
+                    </li>
+                    <li class="time_item">
+                        <button type="button" class="btn_time">1:30</button>
+                    </li>
+                    <li class="time_item">
+                        <button type="button" class="btn_time">2:00</button>
+                    </li>
+                    <li class="time_item">
+                        <button type="button" class="btn_time">2:30</button>
+                    </li>
+                    <li class="time_item">
+                        <button type="button" class="btn_time">3:00</button>
+                    <li class="time_item">
+                        <button type="button" class="btn_time">3:30</button>
+                    </li>
+                    <li class="time_item">
+                        <button type="button" class="btn_time">4:00</button>
+                    </li>
+                    <li class="time_item">
+                        <!-- <button type="button" class="btn_time unselectable" disabled="">4:30</button> -->
+                        <button type="button" class="btn_time">4:30</button>
+                    </li>
+                    <li class="time_item">
+                        <button type="button" class="btn_time">5:00</button>
+                    </li>
+                    <li class="time_item">
+                        <button type="button" class="btn_time">5:30</button>
+                    </li>
+                    <li class="time_item">
+                        <button type="button" class="btn_time">6:00</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="section_footer">
+            <div class="footer_inner">
+                <button type="button" class="footer_btn" id="footer_btn">다음단계</button>
+            </div>
+        </div>
+   
+    
+
+    </section>
+    <script>
+        const btnList = document.querySelectorAll(".calendar_date");
+        const content = document.getElementsByClassName("alert_area")[0];
+        const timeBtn = document.querySelectorAll(".btn_time");
+        const nextBtn = document.getElementById("footer_btn");
+        
+        
+        //날짜버튼 클릭시 alert_area 띄우기
+        btnList.forEach(e=>{
+            e.addEventListener('click',()=>{
+                content.style.display = 'block';
+
+            })
+        });
+
+        let check1 = 0;
+        let check2 = 0;
+
+        //날짜 클릭하는 곳으로 border색 입히기
+        btnList.forEach((e, index) => {
+            e.addEventListener('click', () => {
+                btnList.forEach((btn)=>{
+                    btn.classList.remove('selected');
+                })
+                
+                btnList[index].classList.add('selected');
+                check1 += 1;
+                check();
+            });
+        });
+        
+        //시간 클릭하는 곳으로 border색 입히기
+        timeBtn.forEach((e, index) => {
+            e.addEventListener('click', () => {
+                timeBtn.forEach((btn)=>{
+                    btn.classList.remove('selected');
+                })
+                
+                timeBtn[index].classList.add('selected');
+                check2 += 1;
+                check();
+            });
+        });
+
+
+        //다음단계 활성화
+        function check(){
+            if(check1 == 1 && check2 == 1){
+                nextBtn.classList.add('selected');
+            }
+        }
+        
+    </script>
+</body>
+</html>

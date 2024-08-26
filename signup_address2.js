@@ -28,9 +28,7 @@ function execDaumPostcode() {
             }
 
             document.getElementById('postcode').value = data.zonecode;
-            document.getElementById('postcode2').value = data.zonecode;
             document.getElementById("homeAddress").value = addr;
-            document.getElementById("homeAddress2").value = addr;
             document.getElementById("detailAddress").focus();
         }
     }).open();

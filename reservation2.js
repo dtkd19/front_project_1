@@ -81,13 +81,16 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             const value = item.getAttribute("data-value");
-            document.getElementById('tVal2').innerHTML = value;
+            const elements = document.getElementsByClassName("tVal");
+
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].innerHTML = value;
+            }
         });
     });
 
-
     // 두 번째 탭 리스트와 내용 영역을 가져옵니다.
-    const tabList2 = document.querySelectorAll("#subject a");
+    const tabList2 = document.querySelectorAll(".choiceArea a");
     const tabContent2 = document.querySelectorAll(".choiceArea2");
     const check1 = document.getElementById("check1");
     
@@ -125,16 +128,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 // 스크롤 기능 추가
                 targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
             }
+
+            const value = item.getAttribute("data-value");
+            const elements = document.getElementsByClassName("selectedSubject");
+
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].innerHTML = value;
+            }
             check1.checked = true;
         });
     });
 
     // 두 번째 탭 리스트와 내용 영역을 가져옵니다.
-    const tabList3 = document.querySelectorAll(".choiceArea2 a");
+    const tabList3 = document.querySelectorAll(".moveDate a");
     const tabContent3 = document.querySelector(".section_calendar");
     const check2 = document.getElementById("check2");
-    
-    // 페이지가 로드될 때 choiceArea2를 숨깁니다.
+
     tabContent3.style.display = "none";
 
     tabList3.forEach((item) => {
@@ -164,7 +173,26 @@ document.addEventListener("DOMContentLoaded", function () {
                 targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
             }
 
-            check2.checked = true;
+            check1.checked = true;
+
+            // 선택된 의료진 이름을 .selectedDoctor 요소에 업데이트
+            if (item.classList.contains("aaa")) {
+                check2.checked = false;
+                console.log("aaa 클래스가 포함되어 있어 check2가 false로 설정되었습니다.");
+            } else {
+                check2.checked = true;
+                console.log("aaa 클래스가 포함되어 있지 않아 check2가 true로 설정되었습니다.");
+    
+                const value = item.getAttribute("data-value");
+                console.log("선택된 data-value: ", value);
+    
+                const elements = document.getElementsByClassName("selectedDoctor");
+                for (let i = 0; i < elements.length; i++) {
+                    elements[i].innerHTML = value;
+                    console.log(`elements[${i}].innerHTML이(가) ${value}로 설정되었습니다.`);
+                    console.log(`elements[${i}] : ${elements[i]}`);
+                }
+            }
         });
     });
 
@@ -187,32 +215,35 @@ document.addEventListener("DOMContentLoaded", function () {
     
         // 확인 체크박스를 체크 상태로 만듭니다.
         check3.checked = true;
-    });
+    
+        // 선택된 날짜와 시간을 가져옵니다.
+        const selectedDate = document.querySelector(".calendar_date.selected .num").innerText;
+        const selectedTime = document.querySelector(".btn_time.selected").innerText;
+        const selectedTimeId = document.querySelector(".btn_time.selected").id;
 
-    document.getElementById('footer_btn').addEventListener('click', () => {
-        const selectedDate = document.querySelector(".calendar_date.selected").innerText;
-        const selectedTime = String(document.querySelector(".btn_time.selected").innerText);
-        console.log(selectedDate);
+        // 선택된 날짜와 시간을 페이지에 표시합니다.
+        const elements = document.getElementsByClassName("selectedDate");
+
+        if(selectedTimeId.includes("am")) {
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].innerHTML = `2024년 8월 ${selectedDate}일 오전 ${selectedTime}`;
+            }
+        } else {
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].innerHTML = `2024년 8월 ${selectedDate}일 오후 ${selectedTime}`;
+            };
+        }
+
+        document.getElementById('data_value').innerHTML = data_value();
+
         
-        document.getElementById('selectedSubject').innerHTML = selectedSubject;
-        document.getElementById('selectedDoctor').innerHTML = selectedDoctor;
-        document.getElementById('selectedDate').innerHTML = `2024년 8월 ${selectedDate}일 ${selectedTime}`;
-        document.getElementById('selectedName').innerHTML = localStorage.getItem('userName');
-        let userSerial1 = localStorage.getItem('userSerialNum').split(' ')[0];
-        document.getElementById('sectionBirth').innerHTML = userSerial1;
-    });
-
-    document.querySelectorAll('.choiceArea a').forEach(item => {
-        item.addEventListener('click', function(event) {
-            event.preventDefault();
-            selectedSubject = this.getAttribute('data-value');
-        });
-    });
-    document.querySelectorAll('.choiceArea2 a').forEach(item => {
-        item.addEventListener('click', function(event) {
-            event.preventDefault();
-            selectedDoctor = this.getAttribute('data-value');
-        });
+        // 선택된 의료진 이름을 지우고 테이블 배경색을 변경합니다.
+        const selectedDoctorElement = document.getElementsByClassName('selectedDoctor');
+        console.log(selectedDoctorElement);
+        if (selectedDoctorElement[1].innerText == "") {
+            document.getElementById('tableValue').style.backgroundColor = "rgba(235, 235, 235, 1)";
+            selectedDoctorElement.innerHTML = ' ';
+        }
     });
 
     document.getElementById('reserv_btn').addEventListener('click', () => {

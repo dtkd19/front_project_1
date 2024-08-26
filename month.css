@@ -4,7 +4,7 @@
     
 }
 .section_calendar>.calendar_month{
-    border: 1px solid black;
+    border: 1px solid #dce0e8;
     padding: 20px 0;
 }
 .section_calendar>.calendar_month .calendar_date:hover{
@@ -48,7 +48,7 @@
 }
 
 .section_footer .footer_btn.selected{
-    background-color: #03aa5a;
+    background-color: rgb(14, 106, 85);
     font-weight: 700;
 }
 
@@ -9104,13 +9104,19 @@ body.is_pcmap .load_area_wrapper .bg_dimmed_dark {
     border-collapse: collapse
 }
 
+.calendar_month .calendar_header tr {
+    margin-bottom: 1.5rem;
+}
+
 .calendar_month .calendar_header th {
     padding: 7px 0 3px;
+    text-align: center;
     font-size: 15px;
     font-weight: 400;
     line-height: 20px;
     color: #555558;
-    color: var(--booking-color-gray30)
+    color: var(--booking-color-gray30);
+
 }
 
 .calendar_month .calendar_body::before {
@@ -9311,7 +9317,7 @@ body.is_pcmap .load_area_wrapper .bg_dimmed_dark {
 
 .calendar_month.common .calendar_date.selected {
     border-radius: 8px;
-    background-color: #03aa5a
+    background-color: rgb(14, 106, 85)
 }
 
 .calendar_month.common .calendar_date.selected .num,.calendar_month.common .calendar_date.selected .text {
@@ -9670,8 +9676,8 @@ body.is_pcmap .load_area_wrapper .bg_dimmed_dark {
 }
 
 .calendar_time_slot .btn_time.selected {
-    border-color: #03aa5a;
-    background-color: #03aa5a;
+    border-color: rgb(14, 106, 85);
+    background-color: rgb(14, 106, 85);
     font-weight: 600;
     color: #fff
 }

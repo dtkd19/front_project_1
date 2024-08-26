@@ -31,7 +31,7 @@
 }
 
 article {
-    padding: 60px 0 100px 0;
+    padding: 60px 0 150px 0;
 }
 section {
     padding: 0 25px;
@@ -88,6 +88,40 @@ section {
     font-size: 0.9rem;
 }
 
+.nav_memberchoice {
+    margin-bottom: 3.75rem;
+}
+.nav_memberchoice > ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 1px;
+    padding-top: 1px;
+}
+.nav_memberchoice > ul > li {
+    flex: 1;
+    margin-top: -1px;
+    margin-left: -1px;
+    min-height: 3.5rem;
+    box-sizing: border-box;
+}
+.nav_memberchoice > ul > li > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.5rem;
+    height: 100%;
+    color: #000;
+    font-size: 1.125rem;
+    font-weight: 400;
+    letter-spacing: -1px;
+    text-align: center;
+    word-break: break-all;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
 table {
     width: 100%;
     min-width: 375px;
@@ -100,6 +134,23 @@ table {
     letter-spacing: -0.75px;
     line-height: 1.5;
     text-indent: initial;
+}
+
+.nav_memberchoice .active {
+    border-bottom: 5px solid rgb(10, 80, 60);
+}
+
+.nav_memberchoice .active span {
+    color: rgb(2, 114, 90);
+    font-weight: bold;
+}
+
+.infotabel {
+    display: none;
+}
+
+.infotabel.active {
+    display: table;
 }
 
 
@@ -184,7 +235,7 @@ input[type="text"], input[type = "password"]:active {
     max-width: 130px;
 }
 
-#name, #emailId, #postcode, .personNum {
+.reser_name, .emailId, .postcode, .personNum, .relationship {
     max-width: 240px;
 }
 
@@ -273,15 +324,14 @@ input[type="text"], input[type = "password"]:active {
 }
 
 
-#addrBtn, #lastBtn  {
+.addrBtn, #lastBtn  {
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 0 1.5rem;
     max-width: 100%;
-    height: 3.5rem;
+    height: 2.5rem;
     color: white;
     font-weight: 500;
     font-size: 1rem;
@@ -293,6 +343,14 @@ input[type="text"], input[type = "password"]:active {
     vertical-align: middle;
     white-space: nowrap;
     cursor: pointer;
+}
+.addrBtn {
+    padding: 0 1.5rem;
+}
+.lastBtn {
+    width: 18.75rem;
+    padding: 2rem;
+    box-sizing: border-box;
 }
 
 #addrBtn span, #lastBtn span {
@@ -312,12 +370,7 @@ input[type="text"], input[type = "password"]:active {
     padding: 0;
 }
 
-.lastBtn {
-    width: 18.75rem;
-    max-width: 100%;
-    padding: 3rem;
-    box-sizing: border-box;
-}
+
 .lastBtn span {
     width: 18.75rem;
     max-width: 100%;

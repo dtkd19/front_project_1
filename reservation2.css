@@ -14,6 +14,7 @@
     background-color: rgb(14, 106, 85);
     margin: 0 0 100px 0;
     padding: 0 25px 0 25px;
+    box-sizing: border-box;
 }
 .w {
     display: flex;
@@ -97,8 +98,12 @@
     display: block;
     border-bottom: 2px solid lightgray;
 }
+.stepBox > dt {
+    display: flex;
+    justify-content: space-between;
+}
 
-.stepBoxTitle {
+.stepBoxTitle, .stepBoxVal {
     position: relative;
     display: flex;
     align-items: center;
@@ -143,6 +148,7 @@
 .stepBoxTitle > input[type=checkbox]:checked {
     background-color: rgb(10, 80, 60);
     border: 2px solid rgb(10, 80, 60);
+    border-radius: 50%;
 }
 .stepBoxTitle > input[type=checkbox]:checked::after {
     color: white; /* 체크된 후 체크 표시를 흰색으로 변경 */
@@ -150,6 +156,12 @@
 .stepBoxTitle > .t {
     font-size: 1.75rem;
     font-weight: 500;
+}
+.stepBoxVal > span {
+    font-size: 1.75rem;
+    font-weight: 700;
+    word-spacing: 1.2rem;
+    color: rgb(14, 106, 85);
 }
 .stepDisplay {
     position: relative;
@@ -315,16 +327,10 @@ strong {
     margin-bottom: 2.25rem;
 }
 
-.choiceArea2.active {
-    display: block; /* active 클래스가 있을 때만 보이도록 합니다 */
-}
-.choiceArea2 .active a {
-    border: 3px solid rgb(14, 106, 85);
-}
 
 .choiceArea2 > ul > li {
     border: 1px solid #dce0e8;
-    padding: 0; /* Padding이 추가로 생기지 않도록 설정 */
+    padding: 0;
     margin-right: 0.8rem;
     margin-bottom: 1rem;
     display: block;
@@ -334,13 +340,15 @@ strong {
 }
 
 .choiceArea2 > ul > li:hover {
-    border: 3px solid #c7c7c7; /* hover 상태에서 테두리 굵기 변경 */
-    box-sizing: border-box;
+    outline: 3px solid #c7c7c7; /* outline을 사용하여 요소 크기를 유지하면서 강조 효과 추가 */
+    border: 1px solid #dce0e8; /* 기존 border 두께를 유지 */
 }
-
-.choiceArea2 > ul > li a:hover {
-    padding: 1.7rem; /* 호버 시 padding이 추가되지 않도록 설정 */
-    box-sizing: border-box;
+.choiceArea2.active {
+    display: block; /* active 클래스가 있을 때만 보이도록 합니다 */
+}
+.choiceArea2 .active {
+    outline: 3px solid rgb(14, 106, 85);
+    border: 1px solid white;
 }
 
 .choiceArea2 li:nth-child(3n) {
